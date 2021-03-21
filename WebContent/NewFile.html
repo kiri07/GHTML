@@ -6,7 +6,7 @@
 		// render
 		$(".classdiagram").each(function()
 		{
-			$(this).html(ClassDiagramRenderer.render(document, $(this).attr("id"),$(this).attr("name"), $(this).attr("attributes"),$(this).attr("methods")));
+			$(this).html(ClassDiagramRenderer.render(document, $(this).attr("id"),$(this).text()));
 		});
 	});
 </script>
@@ -106,6 +106,10 @@
 				(TAB)System.out.println("Nella media o sotto");
 			}
 		</p>
-		<canvas class="classdiagram" id="ciao" width="480" height="320" name="gigi" attributes="+name:gigi,+surname:voiello" methods="">qui un quadretto rosso</canvas>
+		<canvas class="classdiagram" id="ciao" width="800" height="600">
+		(CLASS;STUDENTE;NAME VARCHAR,SURNAME VARCHAR)
+		(CLASS;MATERIA;STUDENTID INT,NAME VARCHAR,SURNAME VARCHAR)
+		(RELATION;ONETOMANY;STUDENTE;MATERIA)
+		</canvas>
 	</div>
 </html>
