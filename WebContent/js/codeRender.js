@@ -5,7 +5,8 @@ var CodeRenderer =
 			tab:
 				"<div class=tab></div>",
 			keywords:
-				["abstract", "default", "super", "for", "while", "finally", "case", "return", "default", "break", "try", "catch", "new ", "if(", "else", "switch", "do  ", "while", "int ", "double ", "float ", "boolean ", "char ", "short ", "long ", "byte ", "package ", "class ", "private ", "this ", "public ", "static ", "void"],
+				['abstract','finally','protected','boolean','float','public','break','for','return','byte','goto','short','case','if','static','catch','implements','super','char','import','switch','class','instanceof','synchronized','const','int','this','continue','interface','throw','default','long','throws','do','native','transient','double','new','try','else','null','void','extends','package','volatile','final','private','while'
+],
 			variables:
 				[],
 			props:
