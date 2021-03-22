@@ -1,15 +1,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/classdiagramRender.js"></script>
+<script src="js/codeRender.js"></script>
+<link rel="stylesheet" href="css/codeRender.css">
+<link rel="stylesheet" href="css/bookRender.css">
 <script>
-	$(document).ready(function()
-	{
-		// render
+$(document).ready(function()
+		{
 		$(".classdiagram").each(function()
 		{
 			$(this).html(ClassDiagramRenderer.render(document, $(this).attr("id"),$(this).text()));
+			
 		});
-	});
+		$(".code").each(function()
+		{
+			var language = $(this).attr('language');
+			language = language ? language : "Java";
+			var variables = $(this).attr('variables') ? $(this).attr('variables').split(",") : [];
+			var props = $(this).attr('props') ? $(this).attr('props').split(",") : [];
+			
+			$(this).html(CodeRenderer[language].render($(this).text(),variables, props));
+		});
+		});
 </script>
+
 <h1> Java - Supporto al Corso </h1>
 <div style="font-size:30px;padding-top:40px">
 	@Ferdinando Primerano <br />
@@ -39,7 +52,7 @@
 			<i> condizione </i>, vale a dire una espressione booleana che essendo booleana potrà essere solo vera o falsa.
 			<br /> La sua forma generale è la seguente:
 		</p>	
-		<p class="code" language="python">
+		<p class="code">
 			if(condizione)
 			{
 				//istruzioni se la condizione è vera
@@ -56,7 +69,7 @@
 			Per ovvie ragioni, verrà eseguito solo l'uno o l'altro.<br />
 			Ora vediamo una serie di condizioni e di relativi if o if-else:
 		</p>
-		<p class=code>
+		<p class="code">
 			if(statura>180)
 			(TAB)System.out.println("Alto");
 			//solo blocco if, niente else, e non servono le graffe perchè il blocco if si riduce a una riga
@@ -92,7 +105,7 @@
 			Ricordiamo anche, ora come prima, che una condizione è solo una espressione booleana, e posso salvarla 
 			in una variabile e usarla come condizione nell'if:
 		</p>
-		<p class="code" language="python">
+		<p class="code" variables="over180,over175" props="System.out.println">
 			boolean over180 = statura > 180;
 			boolean over175 = statura > 175;
 			if(over180)
