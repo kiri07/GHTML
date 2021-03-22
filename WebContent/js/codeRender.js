@@ -26,9 +26,10 @@ var CodeRenderer =
 					
 					if(line.trim()=="}")
 						indent-=1;
-
 					if(line.trim()[0]=="/")
+					{
 						line="<div class=comment>"+line+"</div>";
+					}
 					else
 					{
 						for(var k=0;k<this.keywords.length;k++)
@@ -37,12 +38,13 @@ var CodeRenderer =
 							line = line.replace(this.variables[k], "<div class=variables>"+this.variables[k].replace(" ","&nbsp;")+"</div>");
 						for(var k=0;k<this.props.length;k++)
 							line = line.replace(this.props[k], "<div class=property>"+this.props[k].replace(" ","&nbsp;")+"</div>");
+						
 					}
 					for(var k=0;k<indent;k++)
 						rendered+=this.tab;
 
-					line = line.replace("(TAB)", this.tab);
-					line = line.replace("(TAB2)", this.tab + this.tab);
+					line = line.replace("(TAB)", this.tab + rendered);
+					line = line.replace("(TAB2)", this.tab + this.tab + rendered);
 					for(var r=0;r<10;r++)
 					{
 						line = line.replace("< ", "&lt;");
