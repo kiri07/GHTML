@@ -17,10 +17,13 @@ var CodeRenderer =
 				var indent = 0;
 				var res = "";
 				text = content.split("\n");
+				
 				for(var i=1;i<text.length-1;i++)
 				{
+				
 					var rendered = "";
 					var line = text[i];
+					
 					if(line.trim()=="}")
 						indent-=1;
 
@@ -44,19 +47,16 @@ var CodeRenderer =
 					{
 						line = line.replace("< ", "&lt;");
 						line = line.replace(" >", "&gt;");
-					}
-					line = "<div class=linenumber>"+(i>9 ? i : "0"+i)+"</div>"+line;
-										
-					
+					}				
+					if(line.trim()=="{")
+						indent+=1;
 					rendered+=line+"<br />";
 					// console.log(line);
 					
 					res+=rendered;
-
-					if(line.trim()=="{")
-						indent+=1;
 					
 				}
+				
 				return res;
 			}},
 		SQL:
@@ -91,10 +91,6 @@ var CodeRenderer =
 
 					line = line.replace("(TAB)", this.tab);
 					line = line.replace("(TAB2)", this.tab+this.tab);
-					for(var r=0;r<10;r++)
-					{
-					}
-					line = "<div class=linenumber>"+(i>9 ? i : "0"+i)+"</div>"+line;
 										
 					
 					rendered+=line+"<br />";
