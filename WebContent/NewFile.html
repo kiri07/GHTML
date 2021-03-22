@@ -105,19 +105,9 @@ $(document).ready(function()
 			Ricordiamo anche, ora come prima, che una condizione è solo una espressione booleana, e posso salvarla 
 			in una variabile e usarla come condizione nell'if:
 		</p>
-		<p class="code" variables="over180,over175" props="System.out.println">
-			boolean over180 = statura > 180;
-			boolean over175 = statura > 175;
-			if(over180)
-			(TAB)System.out.println("Alto");
-			else
-			{
-				System.out.println("Non alto ma...");
-				if(over175)
-				(TAB)System.out.println("Sopra la media");
-				else
-				(TAB)System.out.println("Nella media o sotto");
-			}
+		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+			--un commento in sql!
+			SELECT * FROM ciao;
 		</p>
 		<canvas class="classdiagram" id="ciao" width="800" height="600">
 		(CLASS;STUDENTE;NAME VARCHAR,SURNAME VARCHAR)

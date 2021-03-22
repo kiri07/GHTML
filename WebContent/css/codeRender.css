@@ -79,3 +79,15 @@ DIV.variables
     font-weight:bold;
     margin-top:10px;
 }
+
+DIV.keywordsql
+	{
+		color:#0000CD;
+		display:inline-block;
+	}
+
+DIV .commentsql
+	{
+		color:green;
+		display:inline-block;
+	}
