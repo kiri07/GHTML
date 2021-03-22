@@ -1,16 +1,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/classdiagramRender.js"></script>
+<script src="js/dbDiagramRender.js"></script>
 <script src="js/codeRender.js"></script>
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
 <script>
 $(document).ready(function()
 		{
-		$(".classdiagram").each(function()
-		{
-			$(this).html(ClassDiagramRenderer.render(document, $(this).attr("id"),$(this).text()));
-			
-		});
 		$(".code").each(function()
 		{
 			var language = $(this).attr('language');
@@ -20,9 +15,19 @@ $(document).ready(function()
 			
 			$(this).html(CodeRenderer[language].render($(this).text(),variables, props));
 		});
+		$("dbdiagram").each(function()
+				{
+					var res = "<div class='dbdiagram w3-row' style='display:inline-block'>";
+					$(this).find("dbel").each(function()
+					{
+						console.log($(this));
+						res+="<div class='dbdiagram w3-col m1' style='display:inline-block;padding-right:16px'>"+DBRenderer.render($(this))+"</div>";
+					});
+					res+="</div>";
+					$(this).html(res);
+				});
 		});
 </script>
-
 <h1> Java - Supporto al Corso </h1>
 <div style="font-size:30px;padding-top:40px">
 	@Ferdinando Primerano <br />
@@ -110,11 +115,11 @@ $(document).ready(function()
 			--un commento in sql!
 			SELECT * FROM ciao;
 		</p>
-		<canvas class="classdiagram" id="ciao" width="800" height="600">
-		(CLASS;STUDENTE;NAME VARCHAR,SURNAME VARCHAR)
-		(CLASS;MATERIA;STUDENTID INT,NAME VARCHAR,SURNAME VARCHAR)
-		(RELATION;ONETOMANY;STUDENTE;MATERIA)
-		</canvas>
-		<p>ciao mondo</p>
+		<dbdiagram>
+			<dbel type="table" name="author" fields="id int pk,name varchar(100),surname varchar(200)" 
+			/>
+			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
+			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
+		</dbdiagram>
 	</div>
 </html>
