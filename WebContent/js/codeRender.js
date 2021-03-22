@@ -43,8 +43,8 @@ var CodeRenderer =
 					for(var k=0;k<indent;k++)
 						rendered+=this.tab;
 
-					line = line.replace("(TAB)", this.tab + rendered);
-					line = line.replace("(TAB2)", this.tab + this.tab + rendered);
+					line = line.replace("(TAB)", this.tab);
+					line = line.replace("(TAB2)", this.tab + this.tab);
 					for(var r=0;r<10;r++)
 					{
 						line = line.replace("< ", "&lt;");
