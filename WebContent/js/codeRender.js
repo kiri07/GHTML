@@ -34,11 +34,11 @@ var CodeRenderer =
 					else
 					{
 						for(var k=0;k<this.keywords.length;k++)
-							line = line.replace(this.keywords[k], "<div class=keyword>"+this.keywords[k].replace(" ","&nbsp;")+"</div>");
+							line = line.replace(this.keywords[k], "<div class='keyword'>"+this.keywords[k].replace(" ","&nbsp;")+"</div>");
 						for(var k=0;k<this.variables.length;k++)
-							line = line.replace(this.variables[k], "<div class=variables>"+this.variables[k].replace(" ","&nbsp;")+"</div>");
+							line = line.replace(this.variables[k], "<div class='variables'>"+this.variables[k].replace(" ","&nbsp;")+"</div>");
 						for(var k=0;k<this.props.length;k++)
-							line = line.replace(this.props[k], "<div class=property>"+this.props[k].replace(" ","&nbsp;")+"</div>");
+							line = line.replace(this.props[k], "<div class='property'>"+this.props[k].replace(" ","&nbsp;")+"</div>");
 						
 					}
 					for(var k=0;k<indent;k++)
@@ -81,12 +81,12 @@ var CodeRenderer =
 						indent-=1;
 
 					if(line.trim()[0]=="-" && line.trim()[1] == "-")
-						line="<div class=commentsql>"+line+"</div>";
+						line="<div class='commentsql'>"+line+"</div>";
 					else
 						for(var k=0;k<this.keywords.length;k++)
 						{
-							line = line.replace(" " + this.keywords[k] + " ", " <div class=keywordsql>" + this.keywords[k].replace(" ", "&nbsp;") + "</div> ");
-							line = line.replace(this.keywords[k] + " ", "\n" + "<div class=keywordsql>" + this.keywords[k].replace(" ", "&nbsp;") + "</div> ");
+							line = line.replace(" " + this.keywords[k] + " ", " <div class='keywordsql'>" + this.keywords[k].replace(" ", "&nbsp;") + "</div> ");
+							line = line.replace(this.keywords[k] + " ", "\n" + "<div class='keywordsql'>" + this.keywords[k].replace(" ", "&nbsp;") + "</div> ");
 						}
 
 					for(var k=0;k<indent;k++)
