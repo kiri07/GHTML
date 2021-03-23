@@ -98,6 +98,21 @@
 					
 					$(this).html(res);
 				});
+		$(".gigi").each(function()
+				{
+						var c = $(this)[0];
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            ctx.moveTo(0, 20);
+			            ctx.lineTo(300, 20);
+			            ctx.stroke();
+			            ctx.font = "10px Georgia";
+			            ctx.beginPath();
+			            ctx.moveTo(300, 20);
+			            ctx.lineTo(280, 10);
+			            ctx.lineTo(280, 30);
+			            ctx.fill();
+				});
 		});
 </script>
 </head>

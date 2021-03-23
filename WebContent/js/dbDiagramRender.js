@@ -24,7 +24,7 @@ var DBRenderer =
 					var join = rel.attr('join');
 					res += "<div class='dbrel'>"+left+":"+right + "</div>";
 					res += "<div>"+join + "</div>";
-					res += "<hr class='sep'>";
+					res += "<canvas class='gigi' style='width:100%'></canvas>";
 					res += "</div>"
 					return res;
 				}
