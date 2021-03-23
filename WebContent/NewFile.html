@@ -33,13 +33,33 @@
 					$(this).html(res);
 				});
 		$("ucdiagram").each(function()
-				{
+				{	
 					var res = "";
+					var actors=[];
+					var u=[];
+					var usesd=[];
+					var map=[];
 					$(this).find("*").each(function()
-					{
-						console.log($(this));
-						res+=UCRenderer.render($(this));
+					{	
+						actors.push($(this).attr('name'));
+						u.push($(this).attr('uses').split(","));
+						for(var i=0;i<$(this).attr('uses').split(",").length;i++)
+						map.push([$(this).attr('name'),($(this).attr('uses').split(","))[i]])
 					});
+
+					for(var i=0;i<u.length;i++)
+						usesd=usesd.concat(u[i]);
+
+					var uses=[];
+					
+					
+					$.each(usesd, function(i, el)
+					{
+    					if($.inArray(el, uses) === -1) uses.push(el);
+    				});
+    				
+					res+=UCRenderer.render(actors,uses,map);
+					
 					$(this).html(res);
 				});
 		$(".gigi").each(function()
@@ -73,50 +93,50 @@
 <div class="book">
 	<h2 > Basi della programmazione </h2>
 	<div>
-		<h3 > Selezione: scegliere fra più cammini possibili e il costrutto if </h3>
+		<h3 > Selezione: scegliere fra pi羅 cammini possibili e il costrutto if </h3>
 		<p>
 			I programmi visto fino ad ora sono stati strettamente sequenziali. Le righe sono state 
 			eseguite nell'ordine in cui sono state scritte, in maniera rigida. Il programma non poteva eseguire altre 
-			istruzioni se non quelle, e questo è limitante. 
+			istruzioni se non quelle, e questo 癡 limitante. 
 			<br />
 			In quasi tutti i casi vorremo che il programma cambi comportamento a seconda dei dati che l'utente inserisce,
 			o delle <i> condizioni </i> che essi <i> verificano </i>. Dovremo poter <i> selezionare </i> delle istruzioni 
 			che verranno eseguite e altre no a seconda del valore delle condizioni (vero / falso).
 		</p>		
 		<p>
-			La prima e più basilare forma di selezione è il costrutto if. E' anche in assoluto il più potente e l'unico 
+			La prima e pi羅 basilare forma di selezione 癡 il costrutto if. E' anche in assoluto il pi羅 potente e l'unico 
 			di cui avremo veramente bisogno, visto che le altre sono forme di comodo. if lavora valutando una 
-			<i> condizione </i>, vale a dire una espressione booleana che essendo booleana potrà essere solo vera o falsa.
-			<br /> La sua forma generale è la seguente:
+			<i> condizione </i>, vale a dire una espressione booleana che essendo booleana potr� essere solo vera o falsa.
+			<br /> La sua forma generale 癡 la seguente:
 		</p>	
 		<p class="code">
 			if(condizione)
 			{
-				//istruzioni se la condizione è vera
+				//istruzioni se la condizione 癡 vera
 			}
 			else
 			{
-				//istruzioni se la condizione è falsa
+				//istruzioni se la condizione 癡 falsa
 			}
 		</p>		
 		<p>
 			Il primo blocco, quello dopo if(condizione), prende il nome di blocco if, o di blocco-vero, e viene eseguito 
-			quando la condizione è vera. E' la sola parte obbligatoria del costrutto. Il secondo blocco, quello dopo 
-			l'else, viene eseguito se la condizione è falsa, e prende il nome di blocco-else o blocco-falso. <br />
-			Per ovvie ragioni, verrà eseguito solo l'uno o l'altro.<br />
+			quando la condizione 癡 vera. E' la sola parte obbligatoria del costrutto. Il secondo blocco, quello dopo 
+			l'else, viene eseguito se la condizione 癡 falsa, e prende il nome di blocco-else o blocco-falso. <br />
+			Per ovvie ragioni, verr� eseguito solo l'uno o l'altro.<br />
 			Ora vediamo una serie di condizioni e di relativi if o if-else:
 		</p>
 		<p class="code">
 			if(statura>180)
 			(TAB)System.out.println("Alto");
-			//solo blocco if, niente else, e non servono le graffe perchè il blocco if si riduce a una riga
-			//che succede se non è alto? niente. Non verrà eseguita nessuna istruzione e sarà come se l'intero if
+			//solo blocco if, niente else, e non servono le graffe perch癡 il blocco if si riduce a una riga
+			//che succede se non 癡 alto? niente. Non verr� eseguita nessuna istruzione e sar� come se l'intero if
 			//non esistesse
 			if(statura>180)
 			(TAB)System.out.println("Alto");
 			else
 			(TAB)System.out.println("Non alto");
-			//blocco if e blocco else. Uno dei due verrà sicuramente eseguito. Anche in questo caso non servono le graffe
+			//blocco if e blocco else. Uno dei due verr� sicuramente eseguito. Anche in questo caso non servono le graffe
 			//si tratta di una sola istruzione per blocco
 			if(statura>180)
 			(TAB)System.out.println("Alto");
@@ -127,20 +147,20 @@
 				(TAB)System.out.println("Sopra la media");
 				else
 				(TAB)System.out.println("Nella media o sotto");
-				// qui c'� un commento
+				// qui c'� un commento
 			}
-			//blocco if e blocco else. Il blocco else contiene diverse istruzioni e quindi è necessario un blocco di codice.
-			//notiamo che se siamo nell'else, il primo if è falso. Quindi alla seconda riga dell'else noi siamo sicuri 
-			//che la statura sarà sotto il metro e ottanta. Se stiamo eseguendo la terza riga dell'else, la sua 
-			//statura è compresa fra 175 e 180.
+			//blocco if e blocco else. Il blocco else contiene diverse istruzioni e quindi 癡 necessario un blocco di codice.
+			//notiamo che se siamo nell'else, il primo if 癡 falso. Quindi alla seconda riga dell'else noi siamo sicuri 
+			//che la statura sar� sotto il metro e ottanta. Se stiamo eseguendo la terza riga dell'else, la sua 
+			//statura 癡 compresa fra 175 e 180.
 		</p>
 		<p>
 			Come abbiamo appena visto gli if-else si possono <i> innestare </i>. Possiamo avere un if dentro un if, senza 
-			problemi, ma dovremo ricordarci che il <i> luogo </i> in cui siamo rifletterà la <i> condizione </i> 
+			problemi, ma dovremo ricordarci che il <i> luogo </i> in cui siamo rifletter� la <i> condizione </i> 
 			in cui ci troviamo. Se siamo nell'else siamo sicuramente sotto o pari a 180 cm, nell'ultimo esempio.
 		</p>
 		<p>
-			Ricordiamo anche, ora come prima, che una condizione è solo una espressione booleana, e posso salvarla 
+			Ricordiamo anche, ora come prima, che una condizione 癡 solo una espressione booleana, e posso salvarla 
 			in una variabile e usarla come condizione nell'if:
 		</p>
 		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
