@@ -1,5 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/dbDiagramRender.js"></script>
+<script src="js/ucDiagramRender.js"></script>
 <script src="js/codeRender.js"></script>
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
@@ -22,6 +23,17 @@ $(document).ready(function()
 					{
 						console.log($(this));
 						res+="<div class='dbdiagram w3-col m1' style='display:inline-block;padding-right:16px'>"+DBRenderer.render($(this))+"</div>";
+					});
+					res+="</div>";
+					$(this).html(res);
+				});
+		$("ucdiagram").each(function()
+				{
+					var res = "<div class='ucdiagram w3-col'>";
+					$(this).find("*").each(function()
+					{
+						console.log($(this));
+						res+="<div class='ucdiagram w3-col m1'>"+UCRenderer.render($(this))+"</div>";
 					});
 					res+="</div>";
 					$(this).html(res);
@@ -120,6 +132,16 @@ $(document).ready(function()
 			/>
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
+			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
+			<dbel type="table" name="pages" fields="id int,number varchar(100),authorid int" />
 		</dbdiagram>
+		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+			--un commento in sql!
+			SELECT * FROM ciao;
+		</p>
+		<ucdiagram>
+			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>
+			<actor name="QUALCUNALTRO" uses="uc1,uc4,uc5"></actor>
+		</ucdiagram>
 	</div>
 </html>
