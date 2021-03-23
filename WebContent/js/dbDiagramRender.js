@@ -22,6 +22,9 @@ var DBRenderer =
 					var left = rel.attr('left');
 					var right = rel.attr('right');
 					var join = rel.attr('join');
+					//TODO IDEALLY FOR SETTING A DIRECTION CREATE
+					// ATTRIBUTE DIR INSIDE DIV, TO DEFINE PIXELS
+					// IN DOCUMENT READY
 					res += "<div class='dbrel'>"+left+":"+right + "</div>";
 					res += "<div>"+join + "</div>";
 					res += "<canvas class='gigi' style='width:100%'></canvas>";
