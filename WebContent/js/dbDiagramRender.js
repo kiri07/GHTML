@@ -7,28 +7,26 @@ var DBRenderer =
 				rendertable:function(table)
 				{
 				
-					var res = "<div class='dbdiagram w3-col' style='display:inline-block;padding:1rem'>"
+					var res = "<div class='dbdiagram col'>";
 					var name = table.attr('name');
 					var fields = table.attr('fields').split(",");
-					res += "<div class=w3-col m1'>"+"<div class=field style='font-weight:bold'>"+name+"</div>";
+					res += "<div class=field style='font-weight:bold;text-align:center'>"+name+"</div>";
 					res += "<hr style='height:3px;border:none;color:#333;background-color:#333;'>";
 					for(var i=0;i<fields.length;i++)
 						res+="<div class=field>"+fields[i]+"</div>";
-					res+="</div>"+"</div>"
+					res+="</div>";
 					return res;
 				},
 				renderrel:function(rel)
 				{
-					var res = "<div class=dbrel>";
+					var res = "<div class='col'>";
 					var left = rel.attr('left');
 					var right = rel.attr('right');
 					var join = rel.attr('join');
-					res += "<div style='text-align:center'>"+left+":"+right + "</div>";
+					res += "<div class='dbrel'>"+left+":"+right + "</div>";
 					res += "<div>"+join + "</div>";
-					res += "<hr style='height:3px;border:none;color:#333;background-color:#333;'>";
+					res += "<hr class='sep'>";
 					res += "</div>"
-					
-					res += "<div class=arrow>" + "</div>";
 					return res;
 				}
 			}
