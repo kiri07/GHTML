@@ -1,10 +1,16 @@
+<html>
+<head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/dbDiagramRender.js"></script>
+<script src="js/ucDiagramRender.js"></script>
 <script src="js/codeRender.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
+<link rel="stylesheet" href="css/dbDiagramRender.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E">
 <script>
-$(document).ready(function()
+		$(document).ready(function()
 		{
 		$(".code").each(function()
 		{
@@ -17,22 +23,48 @@ $(document).ready(function()
 		});
 		$("dbdiagram").each(function()
 				{
-					var res = "<div class='dbdiagram w3-row' style='display:inline-block'>";
+					var res = "<div class='container' style='padding:1rem'><div class='row row-flex'>";
 					$(this).find("dbel").each(function()
 					{
-						console.log($(this));
-						res+="<div class='dbdiagram w3-col m1' style='display:inline-block;padding-right:16px'>"+DBRenderer.render($(this))+"</div>";
+						res+=DBRenderer.render($(this));
+						console.log(res);
 					});
-					res+="</div>";
+					res += "</div></div>"
 					$(this).html(res);
+				});
+		$("ucdiagram").each(function()
+				{
+					var res = "";
+					$(this).find("*").each(function()
+					{
+						console.log($(this));
+						res+=UCRenderer.render($(this));
+					});
+					$(this).html(res);
+				});
+		$(".gigi").each(function()
+				{
+						var c = $(this)[0];
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            ctx.moveTo(0, 20);
+			            ctx.lineTo(300, 20);
+			            ctx.stroke();
+			            ctx.font = "10px Georgia";
+			            ctx.beginPath();
+			            ctx.moveTo(300, 20);
+			            ctx.lineTo(280, 10);
+			            ctx.lineTo(280, 30);
+			            ctx.fill();
 				});
 		});
 </script>
+</head>
+<body>
 <h1> Java - Supporto al Corso </h1>
 <div style="font-size:30px;padding-top:40px">
 	@Ferdinando Primerano <br />
 	2020/2021
-
 </div>
 <div class="break">&nbsp;</div>
 <div id="index">
@@ -116,10 +148,24 @@ $(document).ready(function()
 			SELECT * FROM ciao;
 		</p>
 		<dbdiagram>
-			<dbel type="table" name="author" fields="id int pk,name varchar(100),surname varchar(200)" 
+			<dbel type="table" name="author" fields="id int pk,gigi,gigi,bepi,lollo,gianni,roberto,francesco,name varchar(100),surname varchar(200)" 
 			/>
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
+			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
+			<dbel type="table" name="pages" fields="id int,number varchar(100),authorid int" />
 		</dbdiagram>
+		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+			--un commento in sql!
+			SELECT * FROM ciao;
+		</p>
+		<ucdiagram>
+			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>
+			<actor name="QUALCUNALTRO" uses="uc1,uc4,uc5"></actor>
+		</ucdiagram>
 	</div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
 </html>
