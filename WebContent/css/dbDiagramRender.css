@@ -1,0 +1,6 @@
+@charset "ISO-8859-1";
+.dbdiagram{
+    border: solid 1px black;
+    border-radius: 5%;
+    padding: 1rem;
+}
