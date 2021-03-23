@@ -5,28 +5,6 @@
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
 <link rel="stylesheet" href="css/dbDiagramRender.css">
-<style>
-    .ucRow {
-    display: table;
-    width: 50%;
-    table-layout: fixed;
-    border-spacing: 10px;
-	}
-	.actor{
-	    display: table-cell;
-	    border: solid 1px black;
-    	border-radius: 5%;
-    	padding: 1rem;
-	}
-	
-	.ucfield
-	{
-		display: table-cell;
-	    border: solid 1px red;
-    	border-radius: 20%;
-    	padding: 1rem;
-	}
-</style>
 <script>
 		$(document).ready(function()
 		{
@@ -41,13 +19,12 @@
 		});
 		$("dbdiagram").each(function()
 				{
-					var res = "<div class='dbdiagram w3-row' style='display:inline-block'>";
+					var res = "";
 					$(this).find("dbel").each(function()
 					{
-						console.log($(this));
-						res+="<div class='dbdiagram w3-col m1' style='display:inline-block;padding-right:16px'>"+DBRenderer.render($(this))+"</div>";
+						res+=DBRenderer.render($(this));
+						console.log(res);
 					});
-					res+="</div>";
 					$(this).html(res);
 				});
 		$("ucdiagram").each(function()
@@ -150,7 +127,7 @@
 			SELECT * FROM ciao;
 		</p>
 		<dbdiagram>
-			<dbel type="table" name="author" fields="id int pk,name varchar(100),surname varchar(200)" 
+			<dbel type="table" name="author" fields="id int pk,gigi,gigi,bepi,lollo,name varchar(100),surname varchar(200)" 
 			/>
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
