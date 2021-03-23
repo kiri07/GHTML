@@ -6,7 +6,6 @@ var DBRenderer =
 				},
 				rendertable:function(table)
 				{
-				
 					var res = "<div class='dbdiagram col'>";
 					var name = table.attr('name');
 					var fields = table.attr('fields').split(",");
