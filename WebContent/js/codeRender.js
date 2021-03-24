@@ -18,12 +18,12 @@ var CodeRenderer =
 				var res = "";
 				text = content.split("\n");
 				
-				for(var i=1;i<text.length-1;i++)
+				for(var i=0;i<text.length-1;i++)
 				{
-				
+
 					var rendered = "";
 					var line = text[i];
-					
+
 					if(line.trim()=="}")
 						indent-=1;
 					if(line.trim()[0]=="/")
@@ -38,10 +38,12 @@ var CodeRenderer =
 							line = line.replace(this.variables[k], "<div class='variables'>"+this.variables[k].replace(" ","&nbsp;")+"</div>");
 						for(var k=0;k<this.props.length;k++)
 							line = line.replace(this.props[k], "<div class='property'>"+this.props[k].replace(" ","&nbsp;")+"</div>");
-						
+
 					}
-					for(var k=0;k<indent;k++)
+					for(var k=0;k<indent;k++){
 						rendered+=this.tab;
+					}
+
 
 					line = line.replace("(TAB)", this.tab);
 					line = line.replace("(TAB2)", this.tab + this.tab);
@@ -49,16 +51,24 @@ var CodeRenderer =
 					{
 						line = line.replace("< ", "&lt;");
 						line = line.replace(" >", "&gt;");
-					}				
+					}
+
 					if(line.trim()=="{")
 						indent+=1;
-					rendered+=line+"<br />";
+					rendered+=line+" <br />";
 					// console.log(line);
-					
+
+					//codice numerazione
+					/**
+					 * number is use for numberline.css
+					 */
+					if (i<=9)
+					rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+
+					if (i>9)
+					rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
 					res+=rendered;
-					
 				}
-				
 				return res;
 			}},
 		SQL:
@@ -72,7 +82,7 @@ var CodeRenderer =
 				var indent = 0;
 				var res = "";
 				text = content.split("\n");
-				for(var i=1;i<text.length-1;i++)
+				for(var i=0;i<text.length-1;i++)
 				{
 					var rendered = "";
 					var line = text[i];
@@ -93,10 +103,21 @@ var CodeRenderer =
 
 					line = line.replace("(TAB)", this.tab);
 					line = line.replace("(TAB2)", this.tab+this.tab);
-										
-					
+
 					rendered+=line+"<br />";
 					// console.log(line);
+
+
+					//codice numerazione
+					/**
+					 * number is use for numberline.css
+					 */
+					if (i<=9)
+						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+
+					if (i>9)
+						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
+
 					
 					res+=rendered;
 
