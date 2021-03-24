@@ -1,28 +1,47 @@
-var UCRenderer =
-            {
-                render:function(actors,uses,map)
-                {   var maxlength=uses.length>actors.length? uses.length : actors.length;
-                    var a=Math.floor(maxlength/actors.length);
-                    var b=Math.floor(maxlength/uses.length);
-                    var res="";
-                    
-                    for (var i = 1; i <= maxlength; i ++)
-                    {
-                    
-                        res+= "<div class='ucRow'><div class='"+(((i%a)==0 &&(Math.floor(i/a)<=actors.length))?("actor'>"+actors[Math.floor(i/a)-1]):"emptycol'>")+"</div>";
-                   
-                        res+="<div class='emptycol'>";
-                        //for(var a = 0; a < map.length; a ++)
-                       
-                        //if(map[a][0]==actors[Math.floor(i/a)-1]&&(i%a)==0 &&(Math.floor(i/a)<=actors.length))
-                         //   res+="<dbel type='rel' left='1' right='n' join='author.id=book.authorid'></dbel>";
+var UCDiagramRenderer =
+{
+	render:function(classe)
+		{
+			// prepare row for the class (and possible interfaces)
+			var res = "<div class='ucdiagram row'>";
+			var name = classe.attr("name");
+			console.log(name);
+			var methods = classe.attr("methods").split(",");
+			res += "<div class='classdiagram object col-md-4'>";
+			res += "<img src='stickman.jpeg' width='10%' height='10%'>"+"</img>";
+			res += "</div>";
+			// this class implements interfaces?
+				//open a new column for the arrow implements (TODO draw line!!)
+				res += "<div class='ucdiagram implementation col-md-4'>";
+				// here be canvases
+				res += "<canvas class='implements' style='width:100%'>"+"hello im an arrow"+"</canvas>";
+				//close the relation column
+				res += "</div>";
+				//open a new column for the interfaces
+				res += "<div class='classdiagram interfaces col-md-4'>";
+				// parse all interfaces
+				for (var i = 0; i < methods.length; i ++)
+					res += "<div class='field' style='text-align:center'>"+methods[i]+"</div class='field'>";
+				// close the column
+				res += "</div>";
 
-                        res+="</div><div class='"+(((i%b)==0 &&(Math.floor(i/b)<=uses.length))?("ucfield'>"+uses[Math.floor(i/b)-1]):"emptycol'>")+"</div>";
-					
-					    res += "</div>";
-                    }
-                    
-
-                    return res;
-                }
-            }
+			// close the class row
+			res += "</div>";
+			// finally, return to webpage
+			return res;
+		},
+	renderrelationship:function(relationship)
+	{
+		// prepare row for relationship
+		var res = "<div class='classdiagram row'>";
+		res += "<div class='classdiagram relationship col-md-4'>";
+		// get kind of relationship
+		var relation = relationship.attr("relation");
+		// prepare field for canvas (TODO CANVAS!!)
+		res += "<canvas class='" + relation +"' style='width:100%;height:100%'>" + "</canvas>";
+		// return res, arrow will be drawn after
+		res += "</div>";
+		res += "</div>";
+		return res;
+	}
+}

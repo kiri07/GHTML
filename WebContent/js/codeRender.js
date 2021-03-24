@@ -18,7 +18,7 @@ var CodeRenderer =
 				var res = "";
 				text = content.split("\n");
 				
-				for(var i=1;i<text.length-1;i++)
+				for(var i=0;i<text.length-1;i++)
 				{
 				
 					var rendered = "";
@@ -42,7 +42,6 @@ var CodeRenderer =
 					}
 					for(var k=0;k<indent;k++)
 						rendered+=this.tab;
-
 					line = line.replace("(TAB)", this.tab);
 					line = line.replace("(TAB2)", this.tab + this.tab);
 					for(var r=0;r<10;r++)
@@ -54,7 +53,19 @@ var CodeRenderer =
 						indent+=1;
 					rendered+=line+"<br />";
 					// console.log(line);
-					
+
+					//codice numerazione
+
+					// number is use for numberline.css
+
+					if (i<=9)
+						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+
+					if (i>9)
+						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
+
+
+
 					res+=rendered;
 					
 				}
@@ -72,7 +83,7 @@ var CodeRenderer =
 				var indent = 0;
 				var res = "";
 				text = content.split("\n");
-				for(var i=1;i<text.length-1;i++)
+				for(var i=0;i<text.length-1;i++)
 				{
 					var rendered = "";
 					var line = text[i];
@@ -92,12 +103,23 @@ var CodeRenderer =
 						rendered+=this.tab;
 
 					line = line.replace("(TAB)", this.tab);
-					line = line.replace("(TAB2)", this.tab+this.tab);
-										
+					line = line.replace("(TAB2)", this.tab+this.tab);			
 					
 					rendered+=line+"<br />";
 					// console.log(line);
-					
+
+
+					//codice numerazione
+
+					// number is use for numberline.css
+
+					if (i<=9)
+						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+
+					if (i>9)
+						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
+
+
 					res+=rendered;
 
 					if(line.trim()=="(")

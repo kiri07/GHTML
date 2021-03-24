@@ -1,33 +1,41 @@
 @charset "ISO-8859-1";
-.line{
-
-          
-          color:black;
-          height:100px;
-          margin:0;
-          width:100px;
-      }
-    .ucRow {
+.gigio{
+      position:absolute;
+    }
+   .ucrel
+{
+  text-align:center;
+  padding-top:50%;
+} 
+ 
+.ucRow {
     display: table;
-    width: 750px;
+    width: 75%;
     table-layout: fixed;
     border-spacing: 10px;
-	}
-	.actor{
-	    display: table-cell;
-	    border: solid 1px black;
-    	border-radius: 5%;
-    	padding: 1rem;
-	}
-	
-	.ucfield
-	{
-		display: table-cell;
-	    border: solid 1px red;
-    	border-radius: 20%;
-    	padding: 1rem;
-	}
-	.emptycol
-	{
-		display: table-cell;
-	}
+  }
+  .actor{
+    text-align:center;
+    vertical-align:middle;
+    font-size:x-large; 
+      display: table-cell;
+      
+      padding: 1rem;
+  }
+  
+  .ucfield
+  { 
+    text-align:center;
+    vertical-align:middle;
+    font-size:xx-large; 
+    display: table-cell;
+      border: solid 1px red;
+      border-radius: 50%;
+      width:35%;
+      padding: 1rem;
+  }
+  .emptycol
+  { 
+
+    display: table-cell;
+  }
