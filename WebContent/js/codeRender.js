@@ -18,7 +18,7 @@ var CodeRenderer =
 				var res = "";
 				text = content.split("\n");
 				
-				for(var i=0;i<text.length-1;i++)
+				for(var i=1;i<text.length-1;i++)
 				{
 				
 					var rendered = "";
@@ -53,19 +53,7 @@ var CodeRenderer =
 						indent+=1;
 					rendered+=line+"<br />";
 					// console.log(line);
-
-					//codice numerazione
-
-					// number is use for numberline.css
-
-					if (i<=9)
-						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
-
-					if (i>9)
-						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
-
-
-
+					
 					res+=rendered;
 					
 				}
@@ -107,19 +95,7 @@ var CodeRenderer =
 					
 					rendered+=line+"<br />";
 					// console.log(line);
-
-
-					//codice numerazione
-
-					// number is use for numberline.css
-
-					if (i<=9)
-						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
-
-					if (i>9)
-						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
-
-
+					
 					res+=rendered;
 
 					if(line.trim()=="(")
