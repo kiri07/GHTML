@@ -43,7 +43,6 @@
 					$(this).find("classel").each(function()
 					{
 						res+=ClassDiagramRenderer.render($(this));
-						console.log(res);
 					});
 					// </div> to add below if doesn't render properly
 					res += "</div>"
@@ -95,16 +94,16 @@
 			            //we can use a dir attribute inside "gigi" to get the direction
 			            // of the cardinality
 				});
-		$(".extends").each(function()
+		$(".associates").each(function()
 				{
 						var c = $(this)[0];
 					 	var ctx = c.getContext("2d");
 			            ctx.beginPath();
-			            for(var i = 0; i < 200; i + 20)
-			            	{
-					            ctx.moveTo(150, i);
-					            ctx.lineTo(150, i + 20);
-			            	}
+			            ctx.moveTo(150, 0);
+			            ctx.lineTo(150, 150);
+			            ctx.lineTo(120, 120);
+			            ctx.moveTo(180, 120);
+			            ctx.lineTo(150, 150);
 			            ctx.stroke();
 			            //we can use a dir attribute inside "gigi" to get the direction
 			            // of the cardinality
@@ -115,36 +114,89 @@
 					 	var ctx = c.getContext("2d");
 			            ctx.beginPath();
 			            ctx.moveTo(150, 0);
-			            ctx.lineTo(150, 300);
+			            ctx.lineTo(150, 150);
+			            ctx.lineTo(120, 120);
+			            ctx.lineTo(180, 120);
+			            ctx.lineTo(150, 150);
 			            ctx.stroke();
+			            ctx.fillStyle = "white";
+			            ctx.fill();
 			            //we can use a dir attribute inside "gigi" to get the direction
 			            // of the cardinality
 				});
-		$(".gigi").each(function()
+		$(".implements").each(function()
 				{
 						var c = $(this)[0];
 					 	var ctx = c.getContext("2d");
 			            ctx.beginPath();
-			            ctx.moveTo(0, 20);
-			            ctx.lineTo(300, 20);
-			            ctx.stroke();
-			            ctx.font = "10px Georgia";
+			            ctx.setLineDash([5, 3]);/*dashes are 5px and spaces are 3px*/
 			            ctx.beginPath();
+			            ctx.moveTo(300,75);
+			            ctx.lineTo(0, 75);
+			            ctx.stroke();
+			            ctx.stroke();
+			            ctx.fillStyle = "white";
+			            ctx.fill();
+			            ctx.lineTo(20, 50);
+			            ctx.lineTo(20, 100);
+			            ctx.lineTo(0, 75);
+			            ctx.stroke();
+			            ctx.fillStyle = "white";
+			            ctx.fill();
 			            //we can use a dir attribute inside "gigi" to get the direction
 			            // of the cardinality
-			            ctx.moveTo(300, 20);
-			            ctx.lineTo(280, 10);
-			            ctx.lineTo(280, 30);
-			            ctx.fill();
 				});
-		$(".gigio").each(function()
+		$(".depends").each(function()
 				{
 						var c = $(this)[0];
-					 	
-						var ctx = c.getContext('2d');
-						ctx.beginPath();
-						ctx.rect(700, 5, 380, $(this).attr('height')-10);
-						ctx.stroke();
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            ctx.setLineDash([5, 3]);
+			            ctx.moveTo(150, 0);
+			            ctx.lineTo(150, 150);
+			            ctx.lineTo(120, 120);
+			            ctx.moveTo(180, 120);
+			            ctx.lineTo(150, 150);
+			            ctx.stroke();
+			            ctx.stroke();
+			            ctx.fillStyle = "white";
+			            ctx.fill();
+			            //we can use a dir attribute inside "gigi" to get the direction
+			            // of the cardinality
+				});
+		$(".aggregates").each(function()
+				{
+						var c = $(this)[0];
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            ctx.moveTo(150, 0);
+			            ctx.lineTo(150, 150);
+			            ctx.lineTo(120, 120);
+			            ctx.lineTo(150, 90);
+			            ctx.lineTo(180, 120);
+			            ctx.lineTo(150, 150);
+			            ctx.stroke();
+			            ctx.fillStyle = "white";
+			            ctx.fill();
+			            //we can use a dir attribute inside "gigi" to get the direction
+			            // of the cardinality
+				});
+		$(".composes").each(function()
+				{
+						var c = $(this)[0];
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            ctx.moveTo(150, 0);
+			            ctx.lineTo(150, 150);
+			            ctx.lineTo(120, 120);
+			            ctx.lineTo(150, 90);
+			            ctx.lineTo(180, 120);
+			            ctx.lineTo(150, 150);
+			            ctx.stroke();
+			            ctx.fillStyle = "black";
+			            ctx.fill();
+			            //we can use a dir attribute inside "gigi" to get the direction
+			            // of the cardinality
 				});
 		});
 </script>
@@ -250,14 +302,12 @@
 			--un commento in sql!
 			SELECT * FROM ciao;
 		</p>
-		<ucdiagram>
-			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>
-			<actor name="QUALCUNALTRO" uses="uc1,uc4,uc5"></actor>
-		</ucdiagram>
 		<classdiagram>
 			<classel type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c">
-			<classel type="relationship" relation="extends">
-			<classel type="class" name="una nuova classe" abstract="y" methods="getName" attrs="Name,Surname" interfaces="a,b,c">
+			<classel type="relationship" relation="inherit">
+			<classel type="class" name="una nuova classe" abstract="n" methods="getName" attrs="Name,Surname">
+			<classel type="relationship" relation="composes">
+			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f">
 		</classdiagram>
 	</div>
 </div>
