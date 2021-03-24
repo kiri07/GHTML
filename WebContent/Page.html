@@ -24,7 +24,7 @@
 		});
 		$("dbdiagram").each(function()
 				{
-					var res = "<div class='container' style='padding:1rem'><div class='row row-flex'>";
+					var res = "<div class='container-fluid' style='padding:1rem'><div class='row row-flex'>";
 					$(this).find("dbel").each(function()
 					{
 						res+=DBRenderer.render($(this));
@@ -63,22 +63,21 @@
 					
 					$(this).html(res);
 				});
-		$(".gigi").each(function()
+		$(".dbrel").each(function()
 				{
 						var c = $(this)[0];
 					 	var ctx = c.getContext("2d");
+					 	ctx.font = "30px Arial";
+					 	ctx.fillText($(this).attr("left"), 40, 50);
+					 	ctx.fillText($(this).attr("right"), 260, 50);
+					 	ctx.font = "25px Georgia";
+					 	ctx.fillText($(this).attr("join"), 0, 100);
 			            ctx.beginPath();
-			            ctx.moveTo(0, 20);
-			            ctx.lineTo(300, 20);
+			            ctx.moveTo(0, 150);
+			            ctx.lineTo(300, 150);
 			            ctx.stroke();
-			            ctx.font = "10px Georgia";
-			            ctx.beginPath();
 			            //we can use a dir attribute inside "gigi" to get the direction
 			            // of the cardinality
-			            ctx.moveTo(300, 20);
-			            ctx.lineTo(280, 10);
-			            ctx.lineTo(280, 30);
-			            ctx.fill();
 				});
 		});
 </script>
@@ -175,6 +174,8 @@
 			/>
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
+			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
+			<dbel type="table" name="pages" fields="id int,number varchar(100),authorid int" />
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="pages" fields="id int,number varchar(100),authorid int" />
 		</dbdiagram>

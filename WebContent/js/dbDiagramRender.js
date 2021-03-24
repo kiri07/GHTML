@@ -25,9 +25,9 @@ var DBRenderer =
 					//TODO IDEALLY FOR SETTING A DIRECTION CREATE
 					// ATTRIBUTE DIR INSIDE DIV, TO DEFINE PIXELS
 					// IN DOCUMENT READY
-					res += "<div class='dbrel'>"+left+":"+right + "</div>";
-					res += "<div>"+join + "</div>";
-					res += "<canvas class='gigi' style='width:100%'></canvas>";
+					// res += "<div class='dbrel'>"+left+":"+right + "</div>";
+					// res += "<div>"+join + "</div>";
+					res += "<canvas class='dbrel' left="+left+" right=" + right + " join="+join+" style='width:100%;height:50%'></canvas>";
 					res += "</div>"
 					return res;
 				}
