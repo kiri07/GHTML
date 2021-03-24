@@ -83,7 +83,7 @@ var CodeRenderer =
 				var indent = 0;
 				var res = "";
 				text = content.split("\n");
-				for(var i=1;i<text.length-1;i++)
+				for(var i=0;i<text.length-1;i++)
 				{
 					var rendered = "";
 					var line = text[i];
