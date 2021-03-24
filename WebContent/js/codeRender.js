@@ -42,15 +42,13 @@ var CodeRenderer =
 					}
 					for(var k=0;k<indent;k++)
 						rendered+=this.tab;
-					line = "<div class=linenumber>"+(i>9 ? i : "0"+i)+"</div>"+line;
 					line = line.replace("(TAB)", this.tab);
 					line = line.replace("(TAB2)", this.tab + this.tab);
 					for(var r=0;r<10;r++)
 					{
 						line = line.replace("< ", "&lt;");
 						line = line.replace(" >", "&gt;");
-					}
-					line = "<div class=linenumber>"+(i>9 ? i : "0"+i)+"</div>"+line;				
+					}				
 					if(line.trim()=="{")
 						indent+=1;
 					rendered+=line+"<br />";

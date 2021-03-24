@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+.classdiagram.object.col
+{
+	border:solid black 3px;
+}
+.classdiagram.interfaces.col
+{
+	border:solid black 3px;
+	border-radius:100%;
+}
