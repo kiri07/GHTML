@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
-	<link rel="stylesheet" href="css/numberline.css">
-	<link rel="stylesheet" href="css/dbDiagramRender.css">
+<link rel="stylesheet" href="css/numberline.css">
+<link rel="stylesheet" href="css/dbDiagramRender.css">
 <link rel="stylesheet" href="css/ucDiagramRender.css">
 <link rel="stylesheet" href="css/classdiagramRender.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E">
@@ -96,6 +96,20 @@
 			            // of the cardinality
 				});
 		$(".extends").each(function()
+				{
+						var c = $(this)[0];
+					 	var ctx = c.getContext("2d");
+			            ctx.beginPath();
+			            for(var i = 0; i < 200; i + 20)
+			            	{
+					            ctx.moveTo(150, i);
+					            ctx.lineTo(150, i + 20);
+			            	}
+			            ctx.stroke();
+			            //we can use a dir attribute inside "gigi" to get the direction
+			            // of the cardinality
+				});
+		$(".inherit").each(function()
 				{
 						var c = $(this)[0];
 					 	var ctx = c.getContext("2d");
