@@ -34,7 +34,7 @@ var ClassDiagramRenderer =
 				//open a new column for the arrow implements (TODO draw line!!)
 				res += "<div class='classdiagram implementation col-md-4'>";
 				// here be canvases
-				res += "<canvas class='implements'>"+"hello im an arrow"+"</canvas>";
+				res += "<canvas class='implements' style='width:100%'>"+"hello im an arrow"+"</canvas>";
 				//close the relation column
 				res += "</div>";
 				//open a new column for the interfaces
@@ -58,7 +58,7 @@ var ClassDiagramRenderer =
 		// get kind of relationship
 		var relation = relationship.attr("relation");
 		// prepare field for canvas (TODO CANVAS!!)
-		res += "<canvas class='" + relation +"'>" + "</canvas>";
+		res += "<canvas class='" + relation +"' style='width:100%;height:100%'>" + "</canvas>";
 		// return res, arrow will be drawn after
 		res += "</div>";
 		res += "</div>";
