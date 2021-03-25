@@ -4,27 +4,28 @@ var UCRenderer =
                 {   var maxlength=uses.length>actors.length? uses.length : actors.length;
                     var a=Math.floor(maxlength/actors.length);
                     var b=Math.floor(maxlength/uses.length);
-                    var res="<canvas class='gigio' width='1500' height='"+maxlength*250+"' style='border:1px solid #d3d3d3;'></canvas>";
+                    var res="<div class='row'> <div class='col-2'></div><div class='col-1 mt-5 ' style='height: 75px;text-align:center'>";
                     
 
                     for (var i = 1; i <= maxlength; i ++)
-                    {
-                    
-                        res+= "<div class='ucRow'><div class='emptycol'></div><div class='"+(((i%a)==0 &&(Math.floor(i/a)<=actors.length))?("actor'>"+"<img src='stickman.jpeg' style='width:50%;'></img>"+actors[Math.floor(i/a)-1])
-                            :"emptycol'>")+"</div>";
-                   
-                        res+="<div class='emptycol' ;>";
-                        //for(var a = 0; a < map.length; a ++)
-                       
-                        //if(map[a][0]==actors[Math.floor(i/a)-1]&&(i%a)==0 &&(Math.floor(i/a)<=actors.length))
-                        res+="<div class='dbrel'></div><div></div><canvas class='gigi' style='width:100%;'></canvas>";
-                        res+="</div><div class='"+(((i%b)==0 &&(Math.floor(i/b)<=uses.length))?("ucfield'>"+uses[Math.floor(i/b)-1]):"emptycol'>");
-                    
-                        res += "</div></div>";
-                    }
-                  
+                    	res+= (((i%a)==0 &&(Math.floor(i/a)<=actors.length))?("<figure ><img class='img-fluid;' height='150 em'  src='stickman.jpeg' > </img><figcaption >"+actors[Math.floor(i/a)-1]+"</figcaption></figure>")
+                            :"<div class='row'><div class='col' style='margin: 90px;'></div></div>");
+                        
+                    res+="</div><div class='col-3 mt-5'> ";
+                    for(var o = 0; o < map.length; o ++)
+                        for(var i = 0; i < actors.length; i ++)
+                            if(map[o][0]==actors[i])
+                                for(var u = 0; u < uses.length; u ++)
+                                    if(map[o][1]==uses[u])
+                                        res+="<canvas class='ucarrow' style='position:absolute'  height='"+180*maxlength+"' width='500'  start='"+((180*(i+1)*a)-90)+"' final='"+((180*(u+1)*b)-90)+"'></canvas>"
 
+                    res+="</div><div class='col-4 mt-5 border'>";
+                    for (var i = 1; i <= maxlength; i ++)
+                    	res+= (((i%b)==0 &&(Math.floor(i/b)<=uses.length))?("<div class='row'><div class='col' style='text-align:center;vertical-align:middle;font-size:xx-large; display: table-cell; border: solid 1px black;border-radius: 50%;width:35%;padding: 1rem;margin: 50px;'>"+uses[Math.floor(i/b)-1]+"</div></div>")
+                            :"<div class='row'><div class='col' style='margin: 90px;'></div></div>");
+                    res+="</div></div>"
 
                     return res;
+
                 }
             }

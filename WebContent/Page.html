@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
-	<link rel="stylesheet" href="css/numberline.css">
-	<link rel="stylesheet" href="css/dbDiagramRender.css">
+<link rel="stylesheet" href="css/numberline.css">
+<link rel="stylesheet" href="css/dbDiagramRender.css">
 <link rel="stylesheet" href="css/ucDiagramRender.css">
 <link rel="stylesheet" href="css/classdiagramRender.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E">
@@ -43,7 +43,6 @@
 					$(this).find("classel").each(function()
 					{
 						res+=ClassDiagramRenderer.render($(this));
-						console.log(res);
 					});
 					// </div> to add below if doesn't render properly
 					res += "</div>"
@@ -51,6 +50,7 @@
 				});
 		$("ucdiagram").each(function()
 				{
+					
 					var res = "";
 					var actors=[];
 					var u=[];
@@ -79,61 +79,40 @@
 					
 					$(this).html(res);
 				});
-		$(".dbrel").each(function()
-				{
-						var c = $(this)[0];
-					 	var ctx = c.getContext("2d");
-					 	ctx.font = "30px Arial";
-					 	ctx.fillText($(this).attr("left"), 40, 50);
-					 	ctx.fillText($(this).attr("right"), 260, 50);
-					 	ctx.font = "25px Georgia";
-					 	ctx.fillText($(this).attr("join"), 0, 100);
-			            ctx.beginPath();
-			            ctx.moveTo(0, 150);
-			            ctx.lineTo(300, 150);
-			            ctx.stroke();
-			            //we can use a dir attribute inside "gigi" to get the direction
-			            // of the cardinality
-				});
-		$(".extends").each(function()
-				{
-						var c = $(this)[0];
+		$(".ucarrow").each(function()
+                {
+                       
+                        var c = $(this)[0];
 					 	var ctx = c.getContext("2d");
 			            ctx.beginPath();
-			            ctx.moveTo(150, 0);
-			            ctx.lineTo(150, 300);
-			            ctx.stroke();
-			            //we can use a dir attribute inside "gigi" to get the direction
-			            // of the cardinality
-				});
-		$(".gigi").each(function()
-				{
-						var c = $(this)[0];
-					 	var ctx = c.getContext("2d");
-			            ctx.beginPath();
-			            ctx.moveTo(0, 20);
-			            ctx.lineTo(300, 20);
-			            ctx.stroke();
-			            ctx.font = "10px Georgia";
-			            ctx.beginPath();
-			            //we can use a dir attribute inside "gigi" to get the direction
-			            // of the cardinality
-			            ctx.moveTo(300, 20);
-			            ctx.lineTo(280, 10);
-			            ctx.lineTo(280, 30);
-			            ctx.fill();
-				});
-		$(".gigio").each(function()
-				{
-						var c = $(this)[0];
-					 	
-						var ctx = c.getContext('2d');
-						ctx.beginPath();
-						ctx.rect(700, 5, 380, $(this).attr('height')-20);
-						ctx.stroke();
-				});
+			            var aWidth=5;
+			            
+			            var aLength=8;
+			            var x0=0;
+			            var y0=$(this).attr('start');
+			            var x1=500;
+			            var y1=$(this).attr('final');
+			            var dx=x1-x0;
+					    var dy=y1-y0;
+					    var angle=Math.atan2(dy,dx);
+					    var length=Math.sqrt(dx*dx+dy*dy);
+					    
+					    ctx.translate(x0,y0);
+					    ctx.rotate(angle);
+					    ctx.beginPath();
+					    ctx.moveTo(0,0);
+					    ctx.lineTo(length,0);
+					    
+					    ctx.moveTo(length-aLength,-aWidth);
+					    ctx.lineTo(length,0);
+					    ctx.lineTo(length-aLength,aWidth);
+					    
+					    ctx.stroke();
+					    ctx.setTransform(1,0,0,1,0,0);
+					                });
 		});
 </script>
+<script  src="js/util/arrowDraw.js"></script>
 </head>
 <body>
 <h1> Java - Supporto al Corso </h1>
@@ -236,15 +215,21 @@
 			--un commento in sql!
 			SELECT * FROM ciao;
 		</p>
+		<classdiagram>
+			<classel type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c">
+			<classel type="relationship" relation="inherit">
+			<classel type="class" name="una nuova classe" abstract="n" methods="getName" attrs="Name,Surname">
+			<classel type="relationship" relation="composes">
+			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f">
+		</classdiagram>
+		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+			--un commento in sql!
+			SELECT * FROM ciao;
+		</p>
 		<ucdiagram>
 			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>
 			<actor name="QUALCUNALTRO" uses="uc1,uc4,uc5"></actor>
 		</ucdiagram>
-		<classdiagram>
-			<classel type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c">
-			<classel type="relationship" relation="extends">
-			<classel type="class" name="una nuova classe" abstract="y" methods="getName" attrs="Name,Surname" interfaces="a,b,c">
-		</classdiagram>
 	</div>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

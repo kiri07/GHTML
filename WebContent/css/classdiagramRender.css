@@ -1,10 +1,29 @@
 @charset "ISO-8859-1";
-.classdiagram.object.col
+.classdiagram.object.col-md-4
 {
 	border:solid black 3px;
 }
-.classdiagram.interfaces.col
+.classdiagram.interfaces.col-md-4
 {
 	border:solid black 3px;
 	border-radius:100%;
 }
+
+.classdiagram.implementation.col-md-4
+{
+	display: flex;
+  	align-items: center;
+}
+
+.classdiagram.row
+{
+	display: flex;
+  	align-items: center;
+}
+
+.classdiagram.relationship.col-md-4
+{
+	display: flex;
+  	align-items: center;
+}
+ 

@@ -14,15 +14,15 @@ var ClassDiagramRenderer =
 			var methods = classe.attr("methods").split(",");
 			var interfaces = classe.attr("interfaces") ? classe.attr("interfaces").split(",") : null;
 			// prepare column for class
-			res += "<div class='classdiagram object col'>";
-			res += "<div class='field' style='text-align:center'>"+name+"</div class='field'>";
+			res += "<div class='classdiagram object col-md-4'>";
+			res += "<div class='field' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
 			// add a separator
-			res += "<hr>";
+			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all attributes
 			for (var i = 0; i < attributes.length; i ++)
 				res += "<div class='field' style='text-align:center'>"+attributes[i]+"</div class='field'>";
 			// add a separator
-			res += "<hr>";
+			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all methods
 			for (var i = 0; i < methods.length; i ++)
 				res += "<div class='field' style='text-align:center'>"+methods[i]+"</div class='field'>";
@@ -32,13 +32,13 @@ var ClassDiagramRenderer =
 			if (interfaces != null)
 			{
 				//open a new column for the arrow implements (TODO draw line!!)
-				res += "<div class='classdiagram implementation col'>";
+				res += "<div class='classdiagram implementation col-md-4'>";
 				// here be canvases
-				res += "<div class='field'>"+"hello im an arrow"+"</div class='field'>";
+				res += "<canvas class='implements' style='width:100%'>"+"hello im an arrow"+"</canvas>";
 				//close the relation column
 				res += "</div>";
 				//open a new column for the interfaces
-				res += "<div class='classdiagram interfaces col'>";
+				res += "<div class='classdiagram interfaces col-md-4'>";
 				// parse all interfaces
 				for (var i = 0; i < interfaces.length; i ++)
 					res += "<div class='field' style='text-align:center'>"+interfaces[i]+"</div class='field'>";
@@ -54,11 +54,13 @@ var ClassDiagramRenderer =
 	{
 		// prepare row for relationship
 		var res = "<div class='classdiagram row'>";
+		res += "<div class='classdiagram relationship col-md-4'>";
 		// get kind of relationship
 		var relation = relationship.attr("relation");
 		// prepare field for canvas (TODO CANVAS!!)
-		res += "<canvas class='" + relation +"'>" + "</canvas>";
+		res += "<canvas class='" + relation +"' style='width:100%;height:100%'>" + "</canvas>";
 		// return res, arrow will be drawn after
+		res += "</div>";
 		res += "</div>";
 		return res;
 	}
