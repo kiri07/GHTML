@@ -1,47 +1,31 @@
-var UCDiagramRenderer =
-{
-	render:function(classe)
-		{
-			// prepare row for the class (and possible interfaces)
-			var res = "<div class='ucdiagram row'>";
-			var name = classe.attr("name");
-			console.log(name);
-			var methods = classe.attr("methods").split(",");
-			res += "<div class='classdiagram object col-md-4'>";
-			res += "<img src='stickman.jpeg' width='10%' height='10%'>"+"</img>";
-			res += "</div>";
-			// this class implements interfaces?
-				//open a new column for the arrow implements (TODO draw line!!)
-				res += "<div class='ucdiagram implementation col-md-4'>";
-				// here be canvases
-				res += "<canvas class='implements' style='width:100%'>"+"hello im an arrow"+"</canvas>";
-				//close the relation column
-				res += "</div>";
-				//open a new column for the interfaces
-				res += "<div class='classdiagram interfaces col-md-4'>";
-				// parse all interfaces
-				for (var i = 0; i < methods.length; i ++)
-					res += "<div class='field' style='text-align:center'>"+methods[i]+"</div class='field'>";
-				// close the column
-				res += "</div>";
+var UCRenderer =
+            {
+                render:function(actors,uses,map)
+                {   var maxlength=uses.length>actors.length? uses.length : actors.length;
+                    var a=Math.floor(maxlength/actors.length);
+                    var b=Math.floor(maxlength/uses.length);
+                    var res="<div class='row'> <div class='col-2'></div><div class='col-1 mt-5 ' style='height: 75px;text-align:center'>";
+                    
 
-			// close the class row
-			res += "</div>";
-			// finally, return to webpage
-			return res;
-		},
-	renderrelationship:function(relationship)
-	{
-		// prepare row for relationship
-		var res = "<div class='classdiagram row'>";
-		res += "<div class='classdiagram relationship col-md-4'>";
-		// get kind of relationship
-		var relation = relationship.attr("relation");
-		// prepare field for canvas (TODO CANVAS!!)
-		res += "<canvas class='" + relation +"' style='width:100%;height:100%'>" + "</canvas>";
-		// return res, arrow will be drawn after
-		res += "</div>";
-		res += "</div>";
-		return res;
-	}
-}
+                    for (var i = 1; i <= maxlength; i ++)
+                    	res+= (((i%a)==0 &&(Math.floor(i/a)<=actors.length))?("<figure ><img class='img-fluid;' height='150 em'  src='stickman.jpeg' > </img><figcaption >"+actors[Math.floor(i/a)-1]+"</figcaption></figure>")
+                            :"<div class='row'><div class='col' style='margin: 90px;'></div></div>");
+                        
+                    res+="</div><div class='col-3 mt-5'> ";
+                    for(var o = 0; o < map.length; o ++)
+                        for(var i = 0; i < actors.length; i ++)
+                            if(map[o][0]==actors[i])
+                                for(var u = 0; u < uses.length; u ++)
+                                    if(map[o][1]==uses[u])
+                                        res+="<canvas class='ucarrow' style='position:absolute'  height='"+180*maxlength+"' width='500'  start='"+((180*(i+1)*a)-90)+"' final='"+((180*(u+1)*b)-90)+"'></canvas>"
+
+                    res+="</div><div class='col-4 mt-5 border'>";
+                    for (var i = 1; i <= maxlength; i ++)
+                    	res+= (((i%b)==0 &&(Math.floor(i/b)<=uses.length))?("<div class='row'><div class='col' style='text-align:center;vertical-align:middle;font-size:xx-large; display: table-cell; border: solid 1px black;border-radius: 50%;width:35%;padding: 1rem;margin: 50px;'>"+uses[Math.floor(i/b)-1]+"</div></div>")
+                            :"<div class='row'><div class='col' style='margin: 90px;'></div></div>");
+                    res+="</div></div>"
+
+                    return res;
+
+                }
+            }

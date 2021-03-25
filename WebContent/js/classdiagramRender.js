@@ -14,34 +14,36 @@ var ClassDiagramRenderer =
 			var methods = classe.attr("methods").split(",");
 			var interfaces = classe.attr("interfaces") ? classe.attr("interfaces").split(",") : null;
 			// prepare column for class
-			res += "<div class='classdiagram object col-md-4'>";
-			res += "<div class='field' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+			res += "<div class='classdiagram object col-md-4 bg-Light'>";
+			res += "<div class='field bg-warning' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
 			// add a separator
 			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all attributes
 			for (var i = 0; i < attributes.length; i ++)
-				res += "<div class='field' style='text-align:center'>"+attributes[i]+"</div class='field'>";
+				//Update con le icon dentro <i>
+				res += "<div class='field' style='text-align:center'><i class='fas fa-minus mx-1'></i><i class='fas fa-cube mx-2'></i>"+attributes[i]+"</div class='field'>";
 			// add a separator
 			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all methods
 			for (var i = 0; i < methods.length; i ++)
-				res += "<div class='field' style='text-align:center'>"+methods[i]+"</div class='field'>";
+				//Update con le icon dentro <i>
+				res += "<div class='field' style='text-align:center'><i class='fas fa-plus mx-1'></i><i class='fas fa-cube mx-2'></i>"+methods[i]+"</div class='field'>";
 			//first, close the class column 
 			res += "</div>";
 			// this class implements interfaces?
 			if (interfaces != null)
 			{
 				//open a new column for the arrow implements (TODO draw line!!)
-				res += "<div class='classdiagram implementation col-md-4'>";
+				res += "<div class='classdiagram implementation col-md-4 '>";
 				// here be canvases
 				res += "<canvas class='implements' style='width:100%'>"+"hello im an arrow"+"</canvas>";
 				//close the relation column
 				res += "</div>";
 				//open a new column for the interfaces
-				res += "<div class='classdiagram interfaces col-md-4'>";
+				res += "<div class='classdiagram interfaces col-md-4 bg-Light'>";
 				// parse all interfaces
 				for (var i = 0; i < interfaces.length; i ++)
-					res += "<div class='field' style='text-align:center'>"+interfaces[i]+"</div class='field'>";
+					res += "<div class='field' style='text-align:center'><i class='fas fa-cube mx-1'></i>"+interfaces[i]+"</div class='field'>";
 				// close the column
 				res += "</div>";
 			}

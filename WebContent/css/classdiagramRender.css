@@ -1,7 +1,12 @@
 @charset "ISO-8859-1";
+
+body.classdiagram{
+	font-weight:bold;
+}
+
 .classdiagram.object.col-md-4
 {
-	border:solid black 3px;
+	border:solid black 1px;
 }
 .classdiagram.interfaces.col-md-4
 {
@@ -13,6 +18,7 @@
 {
 	display: flex;
   	align-items: center;
+	transform: rotate(180deg);
 }
 
 .classdiagram.row
@@ -26,4 +32,3 @@
 	display: flex;
   	align-items: center;
 }
- 
