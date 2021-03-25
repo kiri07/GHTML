@@ -1,11 +1,18 @@
 @charset "ISO-8859-1";
 .dbdiagram
 {
-	display:inline-block;
-	padding:1rem;
-	border:solid black 3px;
+    display:inline-block;
+    border:solid black 3px;
+    border-radius:5%;
 }
+.db.field.name
+{
+    font-weight:bold;
+    text-align:center;
 
+    border-top-right-radius:5%;
+    border-top-left-radius:5%;
+}
 .dbrel
 {
 	text-align:center;

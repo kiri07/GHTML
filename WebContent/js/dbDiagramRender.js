@@ -7,14 +7,20 @@ var DBRenderer =
 				rendertable:function(table)
 				{
 					var res = "<div class='dbdiagram col'>";
-					var name = table.attr('name');
-					var fields = table.attr('fields').split(",");
-					res += "<div class=field style='font-weight:bold;text-align:center'>"+name+"</div>";
-					res += "<hr style='height:3px;border:none;color:#333;background-color:#333;'>";
-					for(var i=0;i<fields.length;i++)
-						res+="<div class=field>"+fields[i]+"</div>";
-					res+="</div>";
-					return res;
+                    var name = table.attr('name');
+                    var fields = table.attr('fields').split(",");
+                    res += "<div class='row' style='background-color:lightblue'>";
+                    res += "<div class='db field name'>"+name+"</div>"+"</div>";
+                    var key = "<i class='fa fa-key' aria-hidden='true'></i>";
+                    //res += "<hr style='height:3px;border:none;color:#333;background-color:#333;'>";
+                    for(var i=0;i<fields.length;i++)
+                    	{	
+                    	var con=fields[i].includes('pk');
+                    	console.log(con);
+                        res+="<div class=field>"+(fields[i].includes('pk') ? key+" " : "")+fields[i]+"</div>";
+                    }
+                    res+="</div>";
+                    return res;
 				},
 				renderrel:function(rel)
 				{
