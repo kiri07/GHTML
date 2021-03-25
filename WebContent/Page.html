@@ -41,7 +41,7 @@
 		$("classdiagram").each(function()
 				{
 					// <div class='row row-flex'>" to add below
-					var res = "<div class='container-fluid' style='padding:1rem'>";
+					var res = "<div class='container-fluid ml-5 p-3' style='padding:1rem'>";
 					$(this).find("classel").each(function()
 					{
 						res+=ClassDiagramRenderer.render($(this));
@@ -252,11 +252,11 @@
 			SELECT * FROM ciao;
 		</p>
 		<classdiagram>
-			<classel type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c">
-			<classel type="relationship" relation="inherit">
-			<classel type="class" name="una nuova classe" abstract="n" methods="getName" attrs="Name,Surname">
-			<classel type="relationship" relation="composes">
-			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f">
+			<classel stereotype="giuseppe" type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c"></classel>
+			<classel type="relationship" relation="inherit"></classel>
+			<classel type="class" name="una nuova classe" abstract="n" methods="getName" attrs="Name,Surname"></classel>
+			<classel type="relationship" relation="composes"></classel>
+			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f"></classel>
 		</classdiagram>
 		<ucdiagram>
 			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>

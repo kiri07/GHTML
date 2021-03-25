@@ -14,7 +14,7 @@ var CodeRenderer =
 			{
 				this.variables = variables ? variables : [];
 				this.props = props ? props : [];
-				var indent = 0;
+				var indent = 1;
 				var res = "";
 				text = content.split("\n");
 				
@@ -58,11 +58,11 @@ var CodeRenderer =
 
 					// number is use for numberline.css
 
-					if (i<=9)
-						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+					if (i<=8 && i<text.length-2)
+						rendered+="<span class='text-danger  numberline'>"+("0"+(i+1))+"</span>";
 
-					if (i>9)
-						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
+					if (i>8 && i<text.length-2)
+						rendered+="<span class='text-danger  numberline'>"+(i+1)+"</span>";
 
 
 
@@ -113,11 +113,11 @@ var CodeRenderer =
 
 					// number is use for numberline.css
 
-					if (i<=9)
-						rendered+="<span class='text-danger  numberline'>"+("0"+i)+"</span>";
+					if (i<=8 && i<text.length-2)
+						rendered+="<span class='text-danger  numberline'>"+("0"+(i+1))+"</span>";
 
-					if (i>9)
-						rendered+="<span class='text-danger  numberline'>"+(i)+"</span>";
+					if (i>8 && i<text.length-2)
+						rendered+="<span class='text-danger  numberline'>"+(i+1)+"</span>";
 
 
 					res+=rendered;

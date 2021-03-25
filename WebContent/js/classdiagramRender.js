@@ -14,8 +14,16 @@ var ClassDiagramRenderer =
 			var methods = classe.attr("methods").split(",");
 			var interfaces = classe.attr("interfaces") ? classe.attr("interfaces").split(",") : null;
 			// prepare column for class
-			res += "<div class='classdiagram object col-md-4 bg-Light'>";
-			res += "<div class='field bg-warning' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+			var stereotype = classe.attr("stereotype") ? classe.attr("stereotype") : null;
+			// prepare column for class
+			res += "<div class='classdiagram object col-md-3'>";
+			//it's this object stereotype?
+			if(stereotype !=null)
+				//&lt == <<  and &gt==>>
+				res += "<div class='field bg-warning' style='text-align:center'>"+"&lt&lt"+stereotype+"&gt&gt"+"<br>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+			else
+				res += "<div class='field bg-warning' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+			// add a separator
 			// add a separator
 			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all attributes
