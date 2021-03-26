@@ -14,8 +14,8 @@ var CodeRenderer =
 			{
 				this.variables = variables ? variables : [];
 				this.props = props ? props : [];
-				var indent = 1;
-				var res = "";
+				var indent = 0;
+				var res = "<div class='code'>";
 				text = content.split("\n");
 				
 				for(var i=0;i<text.length-1;i++)
@@ -70,7 +70,7 @@ var CodeRenderer =
 					
 				}
 				
-				return res;
+				return res+"<div>";
 			}},
 		SQL:
 		{
@@ -81,7 +81,7 @@ var CodeRenderer =
 			render:function(content,variables, props)
 			{
 				var indent = 0;
-				var res = "";
+				var res = "<div class='code'>";
 				text = content.split("\n");
 				for(var i=0;i<text.length-1;i++)
 				{
@@ -126,7 +126,7 @@ var CodeRenderer =
 						indent+=1;
 					
 				}
-				return res;
+				return res+"<div>";
 			}					
 		}					
 };

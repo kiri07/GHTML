@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ghtml>
+	<book>
+		<h1></h1>
+		<author></author>
+		<documentindex></documentindex>
+		<bookBody>
+		<chapter>
+		<h2></h2>
+		<chapterBody>
+		<paragraph>
+		<h3></h3>
+		<paragraphBody>
+			<p></p>
+			<gcode></gcode>
+			<ucDiagram>
+			<actor></actor>
+			</ucDiagram>
+			<dbDiagram>
+			<dbel></dbel>
+			</dbDiagram>
+			<classDiagram>
+			<classel></classel>
+			</classDiagram>
+		</paragraphBody>
+		</paragraph>
+		</chapterBody>
+		</chapter>
+		</bookBody>
+	</book>
+</ghtml>
