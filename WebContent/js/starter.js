@@ -1,6 +1,6 @@
 $(document).ready(function()
 		{
-		$(".code").each(function()
+		$("gcode").each(function()
 		{
 			var language = $(this).attr('language');
 			language = language ? language : "Java";
