@@ -1,132 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ghtml" xmlns:tns="http://www.example.org/ghtml" elementFormDefault="qualified">
-
-
-
-
-
-
-
-    <simpleType name="p">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <simpleType name="h1">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <simpleType name="h2">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <simpleType name="h3">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <simpleType name="documentindex">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <complexType name="gcode">
-    	<attribute name="language" type="string" use="optional"></attribute>
-    	<attribute name="variables" type="string" use="optional"></attribute>
-    	<attribute name="props" type="string" use="optional"></attribute>
-    </complexType>
-
-    <complexType name="actor">
-    	<attribute name="name" type="string" use="required"></attribute>
-    	<attribute name="uses" type="string" use="required"></attribute>
-    </complexType>
-
-    <complexType name="classel">
-    	<attribute name="type" type="string" use="required"></attribute>
-    	<attribute name="stereotype" type="string" use="optional"></attribute>
-    	<attribute name="name" type="string" use="optional"></attribute>
-    	<attribute name="abstract" type="string" use="optional"></attribute>
-    	<attribute name="methods" type="string" use="optional"></attribute>
-    	<attribute name="attrs" type="string" use="optional"></attribute>
-    	<attribute name="interfaces" type="string" use="optional"></attribute>
-    	<attribute name="relation" type="string" use="optional"></attribute>
-    </complexType>
-
-    <complexType name="dbel">
-    	<attribute name="type" type="string" use="required"></attribute>
-    	<attribute name="name" type="string" use="optional"></attribute>
-    	<attribute name="fields" type="string" use="optional"></attribute>
-    	<attribute name="left" type="string" use="optional"></attribute>
-    	<attribute name="right" type="string" use="optional"></attribute>
-    	<attribute name="join" type="string" use="optional"></attribute>
-    </complexType>
-
-    <attribute name="NewAttribute" type="string"></attribute>
-
-
-    <complexType name="ucDiagram">
-    	<sequence>
-    		<element name="actor" type="tns:actor" maxOccurs="unbounded" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="dbDiagram">
-    	<sequence>
-    		<element name="dbel" type="tns:dbel" maxOccurs="unbounded" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="classDiagram">
-    	<sequence>
-    		<element name="classel" type="tns:classel" maxOccurs="unbounded" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="paragraphBody">
-    	<sequence>
-    		<element name="p" type="tns:p" maxOccurs="unbounded" minOccurs="1"></element>
-    		<element name="gcode" type="tns:gcode" maxOccurs="unbounded" minOccurs="0"></element>
-    		<element name="ucDiagram" type="tns:ucDiagram" maxOccurs="unbounded" minOccurs="0"></element>
-    		<element name="dbDiagram" type="tns:dbDiagram" maxOccurs="unbounded" minOccurs="0"></element>
-    		<element name="classDiagram" type="tns:classDiagram" maxOccurs="unbounded" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="paragraph">
-    	<sequence>
-    		<element name="paragraphBody" type="tns:paragraphBody" maxOccurs="1" minOccurs="1"></element>
-    		<element name="h3" type="tns:h3" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="chapterBody">
-    	<sequence>
-    		<element name="paragraph" type="tns:paragraph" maxOccurs="unbounded" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="chapter">
-    	<sequence>
-    		<element name="h2" type="tns:h2" maxOccurs="1" minOccurs="1"></element>
-    		<element name="chapterBody" type="tns:chapterBody" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="bookBody">
-    	<sequence>
-    		<element name="chapter" type="tns:chapter" maxOccurs="unbounded" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <complexType name="book">
-    	<sequence>
-    		<element name="h1" type="tns:h1" maxOccurs="1" minOccurs="1"></element>
-    		<element name="author" type="tns:author" maxOccurs="unbounded" minOccurs="0"></element>
-    		<element name="documentindex" type="tns:documentindex" maxOccurs="1" minOccurs="1"></element>
-    		<element name="bookBody" type="tns:bookBody" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
-
-    <simpleType name="author">
-    	<restriction base="string"></restriction>
-    </simpleType>
-
-    <element name="ghtml" type="tns:book"></element>
-</schema>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ghtml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="book">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="h1"/>
+              <xs:element name="author">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="br"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="style"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="documentindex"/>
+              <xs:element name="bookBody">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="chapter">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="h2"/>
+                          <xs:element name="chapterBody">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="paragraph">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="h3"/>
+                                      <xs:element name="paragraphBody">
+                                        <xs:complexType>
+                                          <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                            <xs:element name="p" maxOccurs="unbounded" minOccurs="0">
+                                              <xs:complexType mixed="true">
+                                                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element type="xs:string" name="br"/>
+                                                  <xs:element type="xs:string" name="i"/>
+                                                </xs:choice>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="gcode">
+                                              <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element type="xs:string" name="br" maxOccurs="unbounded" minOccurs="0"/>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="dbdiagram">
+                                              <xs:complexType mixed="true">
+                                                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="dbel">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute type="xs:string" name="type" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="name" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="fields" use="optional"/>
+                                                          <xs:attribute type="xs:byte" name="left" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="right" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="join" use="optional"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:choice>
+                                                <xs:attribute type="xs:string" name="language" use="optional"/>
+                                                <xs:attribute type="xs:string" name="variables" use="optional"/>
+                                                <xs:attribute type="xs:string" name="props" use="optional"/>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="ucdiagram">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="actor" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute type="xs:string" name="name" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="uses" use="optional"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="classdiagram">
+                                              <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                  <xs:element name="classel" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute type="xs:string" name="stereotype" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="type" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="name" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="abstract" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="methods" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="attrs" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="interfaces" use="optional"/>
+                                                          <xs:attribute type="xs:string" name="relation" use="optional"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:choice>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

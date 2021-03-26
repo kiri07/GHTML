@@ -109,7 +109,7 @@
 					    ctx.lineTo(length-aLength,aWidth);
 					    
 					    ctx.stroke();
-					    ctx.setTransform(1,0,0,1,0,0);
+					    //ctx.setTransform(1,0,0,1,0,0);
 					                });
 		$("documentindex").each(function()
 				{
@@ -237,8 +237,10 @@
 			SELECT * FROM ciao;
 		</p>
 		<dbdiagram>
-			<dbel type="table" name="author" fields="id int pk,gigi,gigi,bepi,lollo,gianni,roberto,francesco,name varchar(100),surname varchar(200)" 
+			<dbel type="table" name="author" fields="id int pk,egberto,roberto,francesco,name varchar(100),surname varchar(200)" 
 			/>
+			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
+			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
 			<dbel type="rel" left="1" right="n" join="author.id=book.authorid" />
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
 			
@@ -247,6 +249,12 @@
 			--un commento in sql!
 			SELECT * FROM ciao;
 		</p>
+		<ucdiagram>
+			<actor name="qualcuno" uses="uc1,uc2"></actor>
+			<actor name="aginulfo" uses="uc1,uc2"></actor>
+			<actor name="odoacre" uses="uc1,uc2"></actor>
+			<actor name="domenega" uses="uc1,uc3"></actor>
+		</ucdiagram>
 		<classdiagram>
 			<classel stereotype="giuseppe" type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c"></classel>
 			<classel type="relationship" relation="inherit"></classel>
@@ -254,10 +262,19 @@
 			<classel type="relationship" relation="composes"></classel>
 			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f"></classel>
 		</classdiagram>
+		<p>
+			Perlomeno, ha graficato tutto...
+		</p>
 		<ucdiagram>
-			<actor name="qualcuno" uses="uc1,uc2,uc3,uc1,uc4,uc5,uc1,uc4,uc5"></actor>
-			<actor name="QUALCUNALTRO" uses="uc1,uc4,uc5"></actor>
+			<actor name="gigi" uses="uc1,uc2,uc3"></actor>
+			<actor name="gigio" uses="uc1,uc4,uc5"></actor>
+			<actor name="boris" uses="uc1,uc4,uc5"></actor>
+			<actor name="anatoli" uses="uc1,uc4,uc5"></actor>
 		</ucdiagram>
+		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+			--un commento in sql!
+			SELECT * FROM covidDB where regionname='abruzzo';
+		</p>
 	</div>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
