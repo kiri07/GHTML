@@ -34,7 +34,11 @@ h3
 
 @media print
 {
-    .break {page-break-before: always;}
+    .page-break { display: block; page-break-before: auto; }
+}
+
+@media all {
+    .page-break { display: none; }
 }
 
 DIV.comment

@@ -2,7 +2,7 @@
 <ghtml>
 <book>
 
-<h1> h1 Java - Supporto al Corso </h1>
+<h1> h1 Java Supporto al Corso </h1>
 <author>
 	@Ferdinando Primerano <br />
 	2020/2021
@@ -15,22 +15,7 @@ perchè non funzioni accidentaccio
 	<chapterBody>
 	<paragraph>
 		<h3 > Selezione: scegliere fra piç¾… cammini possibili e il costrutto if </h3>
-		<paragraphBody>
-		<p>
-			I programmi visto fino ad ora sono stati strettamente sequenziali. Le righe sono state 
-			eseguite nell'ordine in cui sono state scritte, in maniera rigida. Il programma non poteva eseguire altre 
-			istruzioni se non quelle, e questo ç™¡ limitante. 
-			<br />
-			In quasi tutti i casi vorremo che il programma cambi comportamento a seconda dei dati che l'utente inserisce,
-			o delle <i> condizioni </i> che essi <i> verificano </i>. Dovremo poter <i> selezionare </i> delle istruzioni 
-			che verranno eseguite e altre no a seconda del valore delle condizioni (vero / falso).
-		</p>		
-		<p>
-			La prima e piç¾… basilare forma di selezione ç™¡ il costrutto if. E' anche in assoluto il piç¾… potente e l'unico 
-			di cui avremo veramente bisogno, visto che le altre sono forme di comodo. if lavora valutando una 
-			<i> condizione </i>, vale a dire una espressione booleana che essendo booleana potrï¿½ essere solo vera o falsa.
-			<br /> La sua forma generale ç™¡ la seguente:
-		</p>	
+		<paragraphBody>		
 		<gcode>
 			if(condizione)
 			{

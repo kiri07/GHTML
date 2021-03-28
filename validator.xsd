@@ -6,17 +6,10 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:string" name="h1"/>
-              <xs:element name="author">
-                <xs:complexType mixed="true">
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="br"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="style"/>
-                </xs:complexType>
-              </xs:element>
+              <xs:element name="author"/>
               <xs:element type="xs:string" name="documentindex"/>
               <xs:element name="bookBody">
-                <xs:complexType>
+                <xs:complexType mixed="true">
                   <xs:sequence>
                     <xs:element name="chapter">
                       <xs:complexType>
@@ -31,26 +24,23 @@
                                       <xs:element type="xs:string" name="h3"/>
                                       <xs:element name="paragraphBody">
                                         <xs:complexType>
-                                          <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                            <xs:element name="p" maxOccurs="unbounded" minOccurs="0">
-                                              <xs:complexType mixed="true">
-                                                <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                                  <xs:element type="xs:string" name="br"/>
-                                                  <xs:element type="xs:string" name="i"/>
-                                                </xs:choice>
-                                              </xs:complexType>
-                                            </xs:element>
-                                            <xs:element name="gcode">
-                                              <xs:complexType mixed="true">
-                                                <xs:sequence>
-                                                  <xs:element type="xs:string" name="br" maxOccurs="unbounded" minOccurs="0"/>
-                                                </xs:sequence>
-                                              </xs:complexType>
-                                            </xs:element>
+                                          <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="p" minOccurs="1"/>
+                                            <xs:element name="gcode" minOccurs="0">
+                                            	<xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          	<xs:attribute type="xs:string" name="language" use="optional"/>
+                                                			<xs:attribute type="xs:string" name="variables" use="optional"/>
+                                                			<xs:attribute type="xs:string" name="props" use="optional"/>
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                             </xs:element>
                                             <xs:element name="dbdiagram">
                                               <xs:complexType mixed="true">
-                                                <xs:choice maxOccurs="unbounded" minOccurs="0">
-                                                  <xs:element name="dbel">
+                                                <xs:sequence>
+                                                  <xs:element name="dbel" maxOccurs="unbounded" minOccurs="0">
                                                     <xs:complexType>
                                                       <xs:simpleContent>
                                                         <xs:extension base="xs:string">
@@ -64,10 +54,7 @@
                                                       </xs:simpleContent>
                                                     </xs:complexType>
                                                   </xs:element>
-                                                </xs:choice>
-                                                <xs:attribute type="xs:string" name="language" use="optional"/>
-                                                <xs:attribute type="xs:string" name="variables" use="optional"/>
-                                                <xs:attribute type="xs:string" name="props" use="optional"/>
+                                                </xs:sequence>
                                               </xs:complexType>
                                             </xs:element>
                                             <xs:element name="ucdiagram">

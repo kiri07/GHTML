@@ -5,7 +5,6 @@
 <script src="js/ucDiagramRender.js"></script>
 <script src="js/codeRender.js"></script>
 <script src="js/classdiagramRender.js"></script>
-<script src="js/jsPDF/dist/jspdf.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/codeRender.css">
 <link rel="stylesheet" href="css/bookRender.css">
@@ -17,32 +16,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 <script src="js/starter.js"></script>
 <script  src="js/util/arrowDraw.js"></script>
+<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 </head>
 <body>
+<ghtml>
+<book>
+
 <h1> h1 Java - Supporto al Corso </h1>
-<div style="font-size:30px;padding-top:40px">
+<author>
 	@Ferdinando Primerano <br />
 	2020/2021
-</div>
-<div class="break">&nbsp;</div>
-<div id="index">
-</div>
-<div class="book">
+</author>
 <documentindex></documentindex>
-
-<h2> h2 Sono un sottocapitolo </h2>
-<div>
-<h3> h3 sono pi� piccolo ancora </h3>
-<div></div>
-<h3> h3 ehil� </h3>
-<div></div></div>
-<h2> h2 altor sottocapitolo </h2>
-<div>
-<h3> h3 funziona </h3>
-<div></div></div>
+<bookBody>
+perch� non funzioni accidentaccio
+<chapter>
 	<h2 > Basi della programmazione </h2>
-	<div>
+	<chapterBody>
+	<paragraph>
 		<h3 > Selezione: scegliere fra pi羅 cammini possibili e il costrutto if </h3>
+		<paragraphBody>
 		<p>
 			I programmi visto fino ad ora sono stati strettamente sequenziali. Le righe sono state 
 			eseguite nell'ordine in cui sono state scritte, in maniera rigida. Il programma non poteva eseguire altre 
@@ -58,7 +51,7 @@
 			<i> condizione </i>, vale a dire una espressione booleana che essendo booleana potr� essere solo vera o falsa.
 			<br /> La sua forma generale 癡 la seguente:
 		</p>	
-		<p class="code">
+		<gcode>
 			if(condizione)
 			{
 				//istruzioni se la condizione 癡 vera
@@ -67,7 +60,7 @@
 			{
 				//istruzioni se la condizione 癡 falsa
 			}
-		</p>		
+		</gcode>		
 		<p>
 			Il primo blocco, quello dopo if(condizione), prende il nome di blocco if, o di blocco-vero, e viene eseguito 
 			quando la condizione 癡 vera. E' la sola parte obbligatoria del costrutto. Il secondo blocco, quello dopo 
@@ -75,7 +68,7 @@
 			Per ovvie ragioni, verr� eseguito solo l'uno o l'altro.<br />
 			Ora vediamo una serie di condizioni e di relativi if o if-else:
 		</p>
-		<p class="code">
+		<gcode>
 			if(statura>180)
 			(TAB)System.out.println("Alto");
 			//solo blocco if, niente else, e non servono le graffe perch癡 il blocco if si riduce a una riga
@@ -102,7 +95,7 @@
 			//notiamo che se siamo nell'else, il primo if 癡 falso. Quindi alla seconda riga dell'else noi siamo sicuri 
 			//che la statura sar� sotto il metro e ottanta. Se stiamo eseguendo la terza riga dell'else, la sua 
 			//statura 癡 compresa fra 175 e 180.
-		</p>
+		</gcode>
 		<p>
 			Come abbiamo appena visto gli if-else si possono <i> innestare </i>. Possiamo avere un if dentro un if, senza 
 			problemi, ma dovremo ricordarci che il <i> luogo </i> in cui siamo rifletter� la <i> condizione </i> 
@@ -112,10 +105,10 @@
 			Ricordiamo anche, ora come prima, che una condizione 癡 solo una espressione booleana, e posso salvarla 
 			in una variabile e usarla come condizione nell'if:
 		</p>
-		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+		<gcode language="SQL" variables="over180,over175" props="System.out.println">
 			--un commento in sql!
 			SELECT * FROM ciao;
-		</p>
+		</gcode>
 		<dbdiagram>
 			<dbel type="table" name="author" fields="id int pk,egberto,roberto,francesco,name varchar(100),surname varchar(200)" 
 			/>
@@ -125,10 +118,10 @@
 			<dbel type="table" name="book" fields="id int,title varchar(100),authorid int" />
 			
 		</dbdiagram>
-		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+		<gcode language="SQL" variables="over180,over175" props="System.out.println">
 			--un commento in sql!
 			SELECT * FROM ciao;
-		</p>
+		</gcode>
 		<ucdiagram>
 			<actor name="qualcuno" uses="uc1,uc2"></actor>
 			<actor name="aginulfo" uses="uc1,uc2"></actor>
@@ -155,9 +148,20 @@
 			--un commento in sql!
 			SELECT * FROM covidDB where regionname='abruzzo';
 		</p>
-	</div>
-</div>
+		</paragraphBody>
+		</paragraph>
+		</chapterBody>
+		</chapter>
+		</bookBody>
+		</book>
+		</ghtml>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">   
+ $(document).ready(function(){
+     window.print();
+     return false;
+});
+</script>
 
 </html>
