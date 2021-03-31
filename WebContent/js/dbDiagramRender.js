@@ -6,7 +6,7 @@ var DBRenderer =
 				},
 				rendertable:function(table)
 				{
-					var res = "<div class='dbdiagram col' style='margin:0'>";
+					var res = "<div class='dbdiagram col-md-2' style='margin:0'>";
                     var name = table.attr('name');
                     var fields = table.attr('fields').split(",");
                     res += "<div class='row' style='background-color:lightblue'>";
@@ -28,21 +28,12 @@ var DBRenderer =
 				},
 				renderrel:function(rel)
 				{
-					var res = "<div class='col' style='padding:0'>";
-					var left = rel.attr('left');
-					var right = rel.attr('right');
-					var join = rel.attr('join');
-					//TODO IDEALLY FOR SETTING A DIRECTION CREATE
-					// ATTRIBUTE DIR INSIDE DIV, TO DEFINE PIXELS
-					// IN DOCUMENT READY
-					// res += "<div class='dbrel'>"+left+":"+right + "</div>";
-					// res += "<div>"+join + "</div>";
-					//res += "<canvas class='dbrel' left="+left+" right=" + right + " join="+join+" style='col'></canvas>";
-					res+=	"<div id='container' class='col-3'><p style='text-align:center;'>"+left+"</p></div>"
-							+"<div id='container' class='col-6'><p style='text-align:center;'>"+join+"<p></div>"
-							+"<div id='container' class='col-3'><p style='text-align:center;'>"+right+"</p></div>"
-							+"<canvas class='dbRelArrow' style='width:100%'>"+"hello im an arrow"+"</canvas>";
-					res += "</div>"
+					var res = "<div class='col-md-2'>";
+					res += "<div class='row' style='text-align:center'>" + "<p style='margin:auto'>" + rel.attr('join') + "</p>" + "</div>";
+					res += "<div class='row'>";
+					res += "<canvas class='dbRelArrow' left= " + rel.attr('left') + " right=" + rel.attr('right') + " style='width:100%'></canvas>";
+					res += "</div>";
+					res += "</div>";
 					return res;
 				}
 			}

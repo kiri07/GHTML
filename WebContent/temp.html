@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><ghtml>
+<head><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='js/dbDiagramRender.js'></script><script src='js/ucDiagramRender.js'></script><script src='js/codeRender.js'></script><script src='js/classdiagramRender.js'></script><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' ><link rel='stylesheet' href='css/codeRender.css'><link rel='stylesheet' href='css/bookRender.css'><link rel='stylesheet' href='css/numberline.css'><link rel='stylesheet' href='css/dbDiagramRender.css'><link rel='stylesheet' href='css/ucDiagramRender.css'><link rel='stylesheet' href='css/classdiagramRender.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous' /><script src='js/starter.js'></script><script  src='js/util/arrowDraw.js'></script><script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' ><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous' /></head>
+ <body><?xml version="1.0" encoding="UTF-8" standalone="no"?><ghtml>
 <book>
 
 <h1> GHTML </h1>
@@ -26,18 +27,18 @@
 		<h3> Linee generali </h3>
 			<paragraphBody>			
 				<p>
-					GHTML √® un linguaggio e un tool di rendering pensato per rendere pi√π veloce e 
-					immediata la scrittura di testi tecnici e in particolare di testi di programmazione. <br />
+					GHTML Ë un linguaggio e un tool di rendering pensato per rendere pi˘ veloce e 
+					immediata la scrittura di testi tecnici e in particolare di testi di programmazione. <br/>
 					Si pone come obiettivo la meccanizzazione di una serie di compiti comuni (syntax highlighting, 
 					UML diagrams, realizzazione automatica dell'indice, realizzazione del diagramma del database)
 					che risultano tipicamente dispendiosi in termini di tempo. 
 				</p>
 				<p>
 					I linguaggi di programmazione ad ora supportati per la syntax highlight sono SQL e 
-					Java, ma ci sono progetti per Javascript e per XML. Il codice GHTML √® definito in maniera 
-					univoca tramite un XSD e pu√≤ essere prodotto tramite un editor di testo qualunque
+					Java, ma ci sono progetti per Javascript e per XML. Il codice GHTML Ë definito in maniera 
+					univoca tramite un XSD e puÚ essere prodotto tramite un editor di testo qualunque
 					(ad esempio Notepad++) oppure tramite l'interfaccia web (WIP) messa a disposizione
-					per questo scopo. I file cos√¨ creati possono essere trasformati in PDF direttamente 
+					per questo scopo. I file cosÏ creati possono essere trasformati in PDF direttamente 
 					da web o tramite apposito tool da linea di comando.
 				</p>
 			</paragraphBody>
@@ -48,9 +49,9 @@
 				<p>
 					L'utente invia al tool di rendering un file XML.<br/>
 					Tramite codice JAVA, il tool convalida il file caricato sulla base dello standard XSD utilizzato per definire il linguaggio GHTML.<br/>
-					Se XML non √® formattato secondo la convenzione, viene restituito un messaggio di errore.<br/>
+					Se XML non Ë formattato secondo la convenzione, viene restituito un messaggio di errore.<br/>
 					Se formattato correttamente, il tool procede alla conversione dell'XML in documento HTML.<br/>
-					Tramite JavaScript e CSS, il documento HTML cos√¨ creato viene graficato e preparato per la stampa in formato PDF.<br/>
+					Tramite JavaScript e CSS, il documento HTML cosÏ creato viene graficato e preparato per la stampa in formato PDF.<br/>
 					L'interfaccia Web si avvale di JQUERY e Bootstrap per offrire un syntax highlighter online.
 				</p>
 			</paragraphBody>
@@ -59,12 +60,12 @@
 			<h3> Tecnologie utilizzate </h3>
 			<paragraphBody>
 			<p>
-				Il linguaggio √® stato definito tramite un apposito XSD come menzionato in precedenza.<br/> I tag
+				Il linguaggio Ë stato definito tramite un apposito XSD come menzionato in precedenza.<br/> I tag
 				specifici utilizzati dal linguaggio sono oggetto di spiegazione nella seconda parte di questo documento, 
 				assieme alle regole generali di stesura.<br/>Il motore di rendering che trasforma il documento GHTML
-				in HTML prima e in PDF poi √® stato scritto utilizzando HTML, JavaScript, CSS, avvalendosi
+				in HTML prima e in PDF poi Ë stato scritto utilizzando HTML, JavaScript, CSS, avvalendosi
 				inoltre del framework Bootstrap 4.3.1.<br/>
-				Il tool di validazione e conversione da GHTML a PDF √® stato realizzato con una combinazione di Java, XML e JavaScript.
+				Il tool di validazione e conversione da GHTML a PDF Ë stato realizzato con una combinazione di Java, XML e JavaScript.
 			</p>
 			</paragraphBody>
 		</paragraph>
@@ -77,7 +78,7 @@
 		<h3> Introduzione </h3>
 		<paragraphBody>			
 		<p>
-			Di seguito si presenter√† la sintassi GHTML.<br/>
+			Di seguito si presenter‡ la sintassi GHTML.<br/>
 			Per informazioni sulla struttura da seguire per la stesura del documento, consultare il capitolo "Formattazione XML -- File XSD".
 		</p>
 		</paragraphBody>
@@ -169,7 +170,7 @@
 		<p>
 			Tag utilizzato per definire il contenuto di un paragrafo del libro. <br/>
 			Contiene almeno un campo di testo (Tag p).
-			Pu√≤ contenere campi per la scrittura di codice (Tag gcode),
+			PuÚ contenere campi per la scrittura di codice (Tag gcode),
 			per la graficazione di diagrammi EM (Tag dbdiagram),
 			di diagrammi di casi d'uso (Tag ucdiagram),
 			di diagrammi UML (tag classdiagram).<br/>
@@ -184,10 +185,10 @@
 			Tag utilizzato per la scrittura di codice Java o SQL, con Syntax Highlighting basata
 			su Eclipse IDE tema chiaro. <br/>
 			Si possono impostare i seguenti attributi del tag:<br/>
-			language,variables,props. Il funzionamento sar√† differente a 
+			language,variables,props. Il funzionamento sar‡ differente a 
 			seconda del linguaggio.<br/>COMPONENTE COMUNE AI LINGUAGGI:<br/>
 			language: Il linguaggio di cui si desidera visualizzare il syntax
-			highlighting. Se non inserito, linguaggio di default √® JAVA.
+			highlighting. Se non inserito, linguaggio di default Ë JAVA.
 		</p>
 		<p>
 			LINGUAGGIO JAVA<br/>
@@ -197,13 +198,13 @@
 			che verranno identificate come variabili all'interno del codice: esse verranno
 			graficate con il colore blu.<br/>
 			props: lista di stringhe (separate da virgola)
-			che verranno identificate come propriet√† all'interno del codice: esse verranno
+			che verranno identificate come propriet‡ all'interno del codice: esse verranno
 			graficate con il colore giallo.<br/>
-			L'indentazione √® automatica e segue l'apertura / chiusura delle 
+			L'indentazione Ë automatica e segue l'apertura / chiusura delle 
 			parentesi graffe, come avviene in Eclipse IDE.<br/>
 			Se si desidera inserire manualmente della tabulazione,
-			sar√† necessario aggiungere alla linea da indentare (TAB).<br/>
-			Il commento al codice segue la convenzione, e verr√† evidenziato in verde:<br/>
+			sar‡ necessario aggiungere alla linea da indentare (TAB).<br/>
+			Il commento al codice segue la convenzione, e verr‡ evidenziato in verde:<br/>
 			// per il linguaggio JAVA
 			</p>
 				<p>
@@ -211,11 +212,11 @@
 			<br/>
 			Le keywords di sintassi (SELECT, FROM, WHERE...) verranno graficate con il colore blu;<br/>
 			variables e props non verranno graficate.<br/>
-			L'indentazione √® automatica e segue l'apertura / chiusura delle 
+			L'indentazione Ë automatica e segue l'apertura / chiusura delle 
 			parentesi tonde.<br/>
 			Se si desidera inserire manualmente della tabulazione,
-			sar√† necessario aggiungere alla linea da indentare (TAB).<br/>
-			Il commento al codice segue la convenzione, e verr√† evidenziato in verde:<br/>
+			sar‡ necessario aggiungere alla linea da indentare (TAB).<br/>
+			Il commento al codice segue la convenzione, e verr‡ evidenziato in verde:<br/>
 			-- per il linguaggio SQL.
 			</p>
 			<p>
@@ -226,7 +227,7 @@
 		System.out.println("goodbye world");
 		</gcode>
 		<p>
-		Rendering di codice JAVA, fornendo variabili e propriet√® (tag variables, props):
+		Rendering di codice JAVA, fornendo variabili e proprietË (tag variables, props):
 		</p>
 		<gcode props="println" variables="name,nick">
 		String name = "Test";
@@ -266,7 +267,7 @@
 		I tag actor richiedono i seguenti attributi:<br/>
 		name (obbligatorio): nome dell'attore;<br/>
 		uses (obbligatorio): un elenco,separato da virgola, di casi d'uso.<br/>
-		father (opzionale): se viene definito come "true", una freccia indicante estensione collegher√†
+		father (opzionale): se viene definito come "true", una freccia indicante estensione collegher‡
 		l'attore definito come "father" a quello immediatamente sottostante nel grafico.
 		</p>
 		<p>Esempio di ucDiagram, con attori che condividono use cases, con attore estensione di un padre:</p>
@@ -307,8 +308,8 @@
 		type: definisce il tipo di elemento da graficare, in questo caso, una singola tabella.<br/>
 		name: definisce il nome della tabella. <br/>
 		fields: un elenco,separato da virgola, di campi della tabella.<br/>
-		Se un campo nella lista fields viene definito come "pk", verr√† graficato con una chiave a fianco,
-		ad indicare che √® chiave primaria della tabella.
+		Se un campo nella lista fields viene definito come "pk", verr‡ graficato con una chiave a fianco,
+		ad indicare che Ë chiave primaria della tabella.
 		</p>
 		<dbdiagram>
 		<dbel fields="un campo definito 'pk',name varchar(200)" name="customer" type="table"/>
@@ -322,8 +323,8 @@
 		Tag utilizzato all'interno di dbdiagram per graficare una singola relazione.<br/>
 		Accetta i seguenti attributi al suo interno:<br/>
 		type: definisce il tipo di elemento da graficare, in questo caso, una singola relazione tra tabelle.<br/>
-		left: la cardinalit√† della tabella di sinistra; <br/>
-		right: la cardinalit√† della tabella di destra; <br/>
+		left: la cardinalit‡ della tabella di sinistra; <br/>
+		right: la cardinalit‡ della tabella di destra; <br/>
 		join: testo libero, per definire la relazione tra due tabelle.<br/>
 		</p>
 		<dbdiagram>
@@ -366,7 +367,7 @@
 		type: definisce il tipo di elemento da graficare, in questo caso, una singola classe.<br/>
 		stereotype: definisce lo stereotipo della classe; <br/>
 		name: definisce il nome della classe; <br/>
-		abstract: definisce se la classe √® astratta (y) o concreta (n). Se la classe √® concreta, il nome comparir√† in <i> corsivo </i>. <br/>
+		abstract: definisce se la classe Ë astratta (y) o concreta (n). Se la classe Ë concreta, il nome comparir‡ in <i> corsivo </i>. <br/>
 		methods: passando come attributo una lista separata da virgola di metodi, essi verranno
 		graficati sotto il nome della classe.<br/>
 		attrs: passando come attributo una lista separata da virgola di attributi, essi verranno
@@ -387,7 +388,7 @@
 		Accetta i seguenti attributi:<br/>
 		type: definisce il tipo di elemento da graficare, in questo caso, una singola relazione tra classi.<br/>
 		relationship: definisce il tipo di relazione tra le classi (accettate: inherit, depends, associates, aggregates, composes); <br/>
-		top,bottom: cardinalit√† della relazione tra classe sovra e sottostante alla relazione.<br/>
+		top,bottom: cardinalit‡ della relazione tra classe sovra e sottostante alla relazione.<br/>
 		Un esempio con classi astratte e tipi diversi di relazione (classi e relazioni puramente casuali):
 		</p>
 		<classdiagram>
@@ -408,7 +409,7 @@
 		<h3>Formattazione XML: spiegazione</h3>
 		<paragraphBody>
 		<p>Al fine di garantire una corretta formattazione del documento,
-		si √® deciso di introdurre una serie di regole formali per la validazione del testo:<br/>
+		si Ë deciso di introdurre una serie di regole formali per la validazione del testo:<br/>
 		Il file XML del libro che si intende scrivere si deve espressamente aprire con un tag ghtml;<br/>
 		Il tag ghtml accetta i seguenti tag al suo interno: book (da 1 a infiniti);<br/>
 		Il tag book accetta i seguenti tag al suo interno, secondo questa sequenza: h1 (strettamente 1), author (da 0 a infiniti), 
@@ -421,7 +422,7 @@
 		(strettamente 1);<br/>
 		il tag paragraphBody accetta i seguenti tag al suo interno, in ordine libero: p (da 1 a infiniti),
 		gcode (da 0 a infiniti), ucdiagram (da 0 a infiniti), dbdiagram (da 0 a infiniti),
-		classdiagram (da 0 a infiniti) -- i vari tag *diagram accettano a loro volta i tag di riferimento
+		classdiagram (da 0 a infiniti) -- i vari *diagram accettano a loro volta i tag di riferimento
 		per la loro composizione (consultare i capitoli di riferimento).
 		</p>
 		</paragraphBody>
@@ -431,9 +432,9 @@
 		<paragraphBody>
 		<p>Di seguito una rappresentazione schematica del file XSD usato per la validazione.<br/>
 		I tag indicati con / vengono aperti e chiusi, non contengono tag.<br/>
-		Quando un tag con contenuti verr√† chiuso, si rispetter√† l'indentazione e verr√† indicato con /(nometag).<br/>
+		Quando un tag con contenuti verr‡ chiuso, si rispetter‡ l'indentazione e verr‡ indicato con /(nometag).<br/>
 		A fianco di ogni tag viene indicato il numero minimo e massimo accettati.<br/>
-		Se un tag pu√≤ contenere a sua volta altri tag, si indicher√† immediatamente sotto
+		Se un tag puÚ contenere a sua volta altri tag, si indicher‡ immediatamente sotto
 		se accetta una sequenza di tag o uno schema libero.<br/>
 		Gli attributi di ciascun tag verranno spiegati nel dettaglio nei capitoli correlati. 
 		</p>
@@ -478,30 +479,28 @@
 		</chapterBody>
 		</chapter>
 		<chapter>
-		<h2>Tools di rendering</h2>
+		<h2>Applicativi che utilizzano GHTML</h2>
 		<chapterBody>
 		<paragraph>
 		<h3>Creazione PDF da linea di comando --WIP</h3>
 		<paragraphBody>
 		<p>
-		L'utente avvia il tool CLI da linea di comando, fornendo un percorso per il file GHTML che intende graficare come argomento.<br/>
-		Se il file rispetta la convenzione definita nel file XSD, verr√† visualizzata nel browser di default un'anteprima del PDF graficato, e si potr√† scegliere
-		se scaricare o stampare il libro cos√¨ generato.<br/>
-		In caso contrario, verr√† visualizzato un messaggio indicante l'errore nel file XML.<br/>
-		Note: √® necessaria una connessione ad internet per l'importazione delle librerie necessarie.
+		Una volta impostata la variabile d'ambiente, si potr‡ utilizzare
+		la linea di comando per avviare la conversione in pdf del file xml che si Ë scritto.<br/>
+		si passer‡ come argomento il percorso del file da convertire.<br/>
+		se rispetta la convenzione definita nel file XSD, verr‡ visualizzata una pagina per la stampa.<br/>
+		in caso contrario, verr‡ visualizzato un messaggio indicante l'errore nel file XML.
 		</p>
 		</paragraphBody>
 		</paragraph>
 		<paragraph>
-		<h3>Editor online per il codice</h3>
+		<h3>Editor online per il codice : presentazione</h3>
 		<paragraphBody>
 		<p>
-		√® stata realizzata un interfaccia web per il syntax highlighting del codice.<br/>
-		L'utente potr√† scegliere attraverso gli appositi pulsanti se graficare codice Java o codice SQL.<br/>
-		Dopo aver digitato il codice in una casella di testo, si potr√† visualizzare 
-		una preview del codice con syntax highlight e indentazione corretta, e decidere eventualmente
-		di inviare a stampa o effettuare download.<br/>
-		@jbninkam segnala che √® presente un piccolo bug nella renderizzazione del codice: √® necessario dare un a capo
+		Si stato implementato un editor online per il codice, che permette di renderizzare
+		(ma non di eseguire) il codice Java o SQL secondo lo stile grafico di eclipse IDE tema chiaro.<br/>
+		I vari bottoni per la navigazione indicano le funzioni dell'applicativo.<br/>
+		@jbninkam segnala che Ë presente un piccolo bug nella renderizzazione del codice SQL: Ë necessario dare un a capo
 		in prima linea per poter renderizzare correttamente il codice.
 		</p>
 		</paragraphBody>
@@ -510,4 +509,4 @@
 		</chapter>
 		</bookBody>
 		</book>
-		</ghtml>
+		</ghtml><script type='text/javascript'>setTimeout(function(){$(document).ready(function(){window.print();return false;})},2000);</script></body>

@@ -1,3 +1,6 @@
+/*
+@jbcodefr
+*/
 
 .classcomparisontable
 {
@@ -34,10 +37,7 @@ h3
 
 @media print
 {
-    DIV {page-break-inside: avoid;}
-    H3 {page-break-inside: avoid;}
-    H2 {page-break-before: always;}
-    H1 {page-break-inside: avoid;}
+    .break {page-break-before: always;}
 }
 
 DIV.comment
@@ -60,7 +60,7 @@ DIV.keyword
 
 DIV.property
 {
-    color:orange;
+    color:blue;
     display:inline-block;
 }
 

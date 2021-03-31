@@ -16,26 +16,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 <script src="js/starter.js"></script>
 <script  src="js/util/arrowDraw.js"></script>
-<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 </head>
 <body>
-<ghtml>
-<book>
-
 <h1> h1 Java - Supporto al Corso </h1>
-<author>
+<div style="font-size:30px;padding-top:40px">
 	@Ferdinando Primerano <br />
 	2020/2021
-</author>
+</div>
+<div class="break">&nbsp;</div>
+<div id="index">
+</div>
+<div class="book">
 <documentindex></documentindex>
-<bookBody>
-perchè non funzioni accidentaccio
-<chapter>
+
+<h2> h2 Sono un sottocapitolo </h2>
+<div>
+<h3> h3 sono più piccolo ancora </h3>
+<div></div>
+<h3> h3 ehilà </h3>
+<div></div></div>
+<h2> h2 altor sottocapitolo </h2>
+<div>
+<h3> h3 funziona </h3>
+<div></div></div>
 	<h2 > Basi della programmazione </h2>
-	<chapterBody>
-	<paragraph>
+	<div>
 		<h3 > Selezione: scegliere fra piç¾… cammini possibili e il costrutto if </h3>
-		<paragraphBody>
 		<p>
 			I programmi visto fino ad ora sono stati strettamente sequenziali. Le righe sono state 
 			eseguite nell'ordine in cui sono state scritte, in maniera rigida. Il programma non poteva eseguire altre 
@@ -125,14 +131,14 @@ perchè non funzioni accidentaccio
 		<ucdiagram>
 			<actor name="qualcuno" uses="uc1,uc2"></actor>
 			<actor name="aginulfo" uses="uc1,uc2"></actor>
-			<actor name="odoacre" uses="uc1,uc2"></actor>
+			<actor name="odoacre" uses="uc1,uc2" father="true"></actor>
 			<actor name="domenega" uses="uc1,uc3"></actor>
 		</ucdiagram>
 		<classdiagram>
 			<classel stereotype="giuseppe" type="class" name="classissima" abstract="y" methods="1,2,3,4" attrs="1,2,3,4" interfaces="a,b,c"></classel>
-			<classel type="relationship" relation="inherit"></classel>
+			<classel type="relationship" relation="inherit" top="n" bottom="1"></classel>
 			<classel type="class" name="una nuova classe" abstract="n" methods="getName" attrs="Name,Surname"></classel>
-			<classel type="relationship" relation="composes"></classel>
+			<classel type="relationship" relation="associates" top="n" bottom="1"></classel>
 			<classel type="class" name="classe ancora" abstract="n" methods="getName" attrs="Name,Surname" interfaces="d,e,f"></classel>
 		</classdiagram>
 		<p>
@@ -144,24 +150,13 @@ perchè non funzioni accidentaccio
 			<actor name="boris" uses="uc1,uc4,uc5"></actor>
 			<actor name="anatoli" uses="uc1,uc4,uc5"></actor>
 		</ucdiagram>
-		<p class="code" language="SQL" variables="over180,over175" props="System.out.println">
+		<gcode language="SQL" variables="over180,over175" props="System.out.println">
 			--un commento in sql!
 			SELECT * FROM covidDB where regionname='abruzzo';
-		</p>
-		</paragraphBody>
-		</paragraph>
-		</chapterBody>
-		</chapter>
-		</bookBody>
-		</book>
-		</ghtml>
+		</gcode>
+	</div>
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-<script type="text/javascript">   
- $(document).ready(function(){
-     window.print();
-     return false;
-});
-</script>
 
 </html>

@@ -19,23 +19,23 @@ var ClassDiagramRenderer =
 			res += "<div class='classdiagram object col-md-3'>";
 			//it's this object stereotype?
 			if(stereotype !=null)
-				//&lt == <<  and &gt==>>
-				res += "<div class='field bg-warning' style='text-align:center'>"+"&lt&lt"+stereotype+"&gt&gt"+"<br>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
-			else
-				res += "<div class='field bg-warning' style='text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
-			// add a separator
-			// add a separator
-			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
-			// parse all attributes
+                //&lt == <<  and &gt==>>
+                res += "<div class='field bg-warning' style='border-bottom: 1px solid black;padding-top:20px;padding-bottom:10px;text-align:center'>"+"&lt&lt"+stereotype+"&gt&gt"+"<br>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+            else
+                res += "<div class='field bg-warning' style='border-bottom: 1px solid black;padding-top:20px;padding-bottom:10px;text-align:center'>"+(astratta == "y" ? "<i>": "")+name+(astratta == "y" ? "</i>": "")+"</div class='field'>";
+            // add a separator
+            // add a separator
+            res += "<hr style='height:0px;border:none;color:#333;background-color:#333;'>";
+            // parse all attributes
 			for (var i = 0; i < attributes.length; i ++)
 				//Update con le icon dentro <i>
-				res += "<div class='field' style='text-align:center'><i class='fas fa-minus mx-1'></i><i class='fas fa-cube mx-2'></i>"+attributes[i]+"</div class='field'>";
+				res += "<div class='field' style='text-align:left;padding-left:50px;'><i class='fas fa-minus mx-1'></i><i class='fas fa-cube mx-2'></i>"+attributes[i]+"</div class='field'>";
 			// add a separator
 			res += "<hr style='height:1px;border:none;color:#333;background-color:#333;'>";
 			// parse all methods
 			for (var i = 0; i < methods.length; i ++)
 				//Update con le icon dentro <i>
-				res += "<div class='field' style='text-align:center'><i class='fas fa-plus mx-1'></i><i class='fas fa-cube mx-2'></i>"+methods[i]+"</div class='field'>";
+				res += "<div class='field' style='text-align:left;padding-left:50px;'><i class='fas fa-plus mx-1'></i><i class='fas fa-cube mx-2'></i>"+methods[i]+"</div class='field'>";
 			//first, close the class column 
 			res += "</div>";
 			// this class implements interfaces?
@@ -63,12 +63,14 @@ var ClassDiagramRenderer =
 	renderrelationship:function(relationship)
 	{
 		// prepare row for relationship
+		var top = relationship.attr('top');
+		var bottom = relationship.attr('bottom');
 		var res = "<div class='classdiagram row'>";
 		res += "<div class='classdiagram relationship col-md-4'>";
 		// get kind of relationship
 		var relation = relationship.attr("relation");
 		// prepare field for canvas (TODO CANVAS!!)
-		res += "<canvas class='" + relation +"' style='width:100%;height:100%'>" + "</canvas>";
+		res += "<canvas class='" + relation +"' style='width:100%;height:100%' top='" + top + "' bottom='" + bottom + "'>" + "</canvas>";
 		// return res, arrow will be drawn after
 		res += "</div>";
 		res += "</div>";

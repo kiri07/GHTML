@@ -1,0 +1,104 @@
+<head><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='js/dbDiagramRender.js'></script><script src='js/ucDiagramRender.js'></script><script src='js/codeRender.js'></script><script src='js/classdiagramRender.js'></script><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' ><link rel='stylesheet' href='css/codeRender.css'><link rel='stylesheet' href='css/bookRender.css'><link rel='stylesheet' href='css/numberline.css'><link rel='stylesheet' href='css/dbDiagramRender.css'><link rel='stylesheet' href='css/ucDiagramRender.css'><link rel='stylesheet' href='css/classdiagramRender.css'><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous' /><script src='js/starter.js'></script><script  src='js/util/arrowDraw.js'></script><script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' ><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css%22%3E'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous' /></head>
+ <body><?xml version="1.0" encoding="UTF-8" standalone="no"?><ghtml>
+<book>
+
+<h1> GHTML </h1>
+<author>
+	@Alessandro Andrea Merlin
+</author>
+<author>
+	@Roberto Caiozzo
+</author>
+<author>
+	@Jean Bosco Ninkam Noussi
+</author>
+<author>
+	@Joseph Francisco Cubas Ballon
+</author>
+<author>
+	@Ferdinando Primerano
+</author>
+<documentindex></documentindex>
+<bookBody>
+<chapter>
+	<h2> Abstract </h2>
+	<chapterBody>
+	<paragraph>
+		<h3> Concetto </h3>
+		<paragraphBody>			
+		<p>
+			Il progetto si propone di aiutare la stesura di libri tecnici della programmazione.<br/>
+			Utilizza il linguaggio GHTML (estensione proprietaria del linguaggio HTML) per la
+			realizzazione in via programmatica di grafici UML, DB, UC.<br/>
+			Implementa inoltre il rendering di due linguaggi di programmazione, Java e SQL.<br/>
+			è presente infine un editor online per il codice (WIP) e un tool per la
+			validazione dei libri e conversione in formato PDF via prompt dei comandi.
+		</p>
+		</paragraphBody>
+		</paragraph>
+		</chapterBody>
+		</chapter>
+		<chapter>
+	<h2> Render codice </h2>
+	<chapterBody>
+	<paragraph>
+		<h3> render java </h3>
+		<paragraphBody>			
+		<p>
+			Il codice arriva con i colori e le linee
+		</p>
+		<gcode>
+			if codice is red
+			// commento
+		</gcode>
+		</paragraphBody>
+		</paragraph>
+		<paragraph>
+		<h3> render sql </h3>
+		<paragraphBody>			
+		<p>
+			Il codice arriva con i colori e le linee
+		</p>
+		<gcode language="SQL">
+			if codice is red
+			// commento
+		</gcode>
+		</paragraphBody>
+		</paragraph>
+		</chapterBody>
+		</chapter>
+		<chapter>
+	<h2> Render diagrammi </h2>
+	<chapterBody>
+	<paragraph>
+		<h3> render db </h3>
+		<paragraphBody>			
+		<p>
+			render del database
+		</p>
+		<dbdiagram>
+			<dbel fields="id int pk,egberto,roberto,francesco,name varchar(100),surname varchar(200)" name="author" type="table"/>
+			<dbel join="author.id=book.authorid" left="1" right="n" type="rel"/>
+			<dbel fields="id int,title varchar(100),authorid int" name="book" type="table"/>
+			<dbel join="author.id=book.authorid" left="1" right="n" type="rel"/>
+			<dbel fields="id int,title varchar(100),authorid int" name="book" type="table"/>
+			
+		</dbdiagram>
+		</paragraphBody>
+		</paragraph>
+		<paragraph>
+		<h3> render uc </h3>
+		<paragraphBody>			
+		<p>
+			render use case diagram
+		</p>
+		<ucdiagram>
+			<actor name="writer" uses="command line interface, web based app"/>
+		</ucdiagram>
+		</paragraphBody>
+		</paragraph>
+		</chapterBody>
+		</chapter>
+		</bookBody>
+		</book>
+		</ghtml></body><script type='text/javascript'>$(document).ready(function(){window.print();return false;});</script>
